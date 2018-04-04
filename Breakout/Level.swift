@@ -12,6 +12,7 @@ import CoreGraphics
 protocol Level : Moveable, Rendereable {
 	var bricks: [Brick] { get }
 	var nextLevel: Level? { get }
+	var yBricks: Int { get }
 	
 	func destroyBrick(at index: Int)
 	

@@ -9,6 +9,9 @@
 import Foundation
 
 class Level1 : BasicLevel {
+	override var yBricks: Int {
+		get { return 4 }
+	}
 	override var nextLevel: Level? {
 		get { return Level2() }
 	}

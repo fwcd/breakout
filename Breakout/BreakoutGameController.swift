@@ -9,8 +9,9 @@
 import UIKit
 
 class BreakoutGameController : UIViewController {
-	let preferredFPS = 30
-	var displayLink: CADisplayLink!
+	private let preferredFPS = 30
+	private var displayLink: CADisplayLink!
+	private var loaded: Bool = false
 	var bView: BreakoutGame {
 		get { return view as! BreakoutGame }
 	}
@@ -19,15 +20,18 @@ class BreakoutGameController : UIViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		bView.prepare(initialBallSpeed: 9, initialBallCount: 20)
-		
-		// Initialize gameloop
-		
-		displayLink = CADisplayLink(target: self, selector: #selector(gameLoop))
-		if #available(iOS 10.0, *) {
-			displayLink.preferredFramesPerSecond = preferredFPS
+		if (!loaded) {
+			bView.prepare(initialBallSpeed: 9, initialBallCount: 20)
+			
+			// Initialize gameloop
+			
+			displayLink = CADisplayLink(target: self, selector: #selector(gameLoop))
+			if #available(iOS 10.0, *) {
+				displayLink.preferredFramesPerSecond = preferredFPS
+			}
+			displayLink.add(to: .main, forMode: .commonModes)
+			loaded = true
 		}
-		displayLink.add(to: .main, forMode: .commonModes)
 	}
 	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,6 +48,11 @@ class BreakoutGameController : UIViewController {
 		}
 		
 		bView.setNeedsDisplay()
+	}
+	
+	@IBAction
+	func returnToGame(sender: UIStoryboardSegue) {
+		
 	}
 	
 	override func didReceiveMemoryWarning() {

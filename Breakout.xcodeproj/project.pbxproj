@@ -29,6 +29,8 @@
 		359565A6207524900091FFF9 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565A5207524900091FFF9 /* Transition.swift */; };
 		359565A8207524960091FFF9 /* Moveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565A7207524960091FFF9 /* Moveable.swift */; };
 		359565AA20752B270091FFF9 /* Rendereable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565A920752B270091FFF9 /* Rendereable.swift */; };
+		359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565AD207545360091FFF9 /* SettingsViewController.swift */; };
+		359565B02075456C0091FFF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565AF2075456C0091FFF9 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		359565A5207524900091FFF9 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		359565A7207524960091FFF9 /* Moveable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moveable.swift; sourceTree = "<group>"; };
 		359565A920752B270091FFF9 /* Rendereable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendereable.swift; sourceTree = "<group>"; };
+		359565AD207545360091FFF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		359565AF2075456C0091FFF9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,19 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				3595654F2073D8F40091FFF9 /* AppDelegate.swift */,
-				359565512073D8F40091FFF9 /* BreakoutGameController.swift */,
-				3595657D2073D9E00091FFF9 /* BreakoutGame.swift */,
-				3595657F2073DB000091FFF9 /* Paddle.swift */,
-				3595658D2073FE0F0091FFF9 /* Collision.swift */,
-				3595658B2073FAEE0091FFF9 /* Collidable.swift */,
-				359565872073E5B70091FFF9 /* Ball.swift */,
-				359565832073DC3E0091FFF9 /* Brick.swift */,
-				3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */,
-				359565912074F3B50091FFF9 /* HardBrick.swift */,
-				359565A5207524900091FFF9 /* Transition.swift */,
-				359565A7207524960091FFF9 /* Moveable.swift */,
-				359565A920752B270091FFF9 /* Rendereable.swift */,
+				359565AC207545180091FFF9 /* Game */,
 				35956596207517FB0091FFF9 /* Levels */,
+				359565AB207544FA0091FFF9 /* Settings */,
 				359565532073D8F40091FFF9 /* Main.storyboard */,
 				359565562073D8F40091FFF9 /* Assets.xcassets */,
 				359565582073D8F40091FFF9 /* LaunchScreen.storyboard */,
@@ -176,6 +170,34 @@
 				359565A12075200C0091FFF9 /* Level2.swift */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		359565AB207544FA0091FFF9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				359565AD207545360091FFF9 /* SettingsViewController.swift */,
+				359565AF2075456C0091FFF9 /* SettingsView.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		359565AC207545180091FFF9 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				359565512073D8F40091FFF9 /* BreakoutGameController.swift */,
+				3595657D2073D9E00091FFF9 /* BreakoutGame.swift */,
+				3595657F2073DB000091FFF9 /* Paddle.swift */,
+				3595658D2073FE0F0091FFF9 /* Collision.swift */,
+				3595658B2073FAEE0091FFF9 /* Collidable.swift */,
+				359565872073E5B70091FFF9 /* Ball.swift */,
+				359565832073DC3E0091FFF9 /* Brick.swift */,
+				3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */,
+				359565912074F3B50091FFF9 /* HardBrick.swift */,
+				359565A5207524900091FFF9 /* Transition.swift */,
+				359565A7207524960091FFF9 /* Moveable.swift */,
+				359565A920752B270091FFF9 /* Rendereable.swift */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +351,8 @@
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
 				3595658C2073FAEE0091FFF9 /* Collidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
+				359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */,
+				359565B02075456C0091FFF9 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

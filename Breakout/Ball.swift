@@ -14,6 +14,7 @@ class Ball : Collidable, Rendereable {
 	let color: CGColor
 	var velocity: CGVector
 	var pos: CGPoint
+	private var collided: Bool = false
 	
 	init(x: CGFloat, y: CGFloat, radius: CGFloat, initialVelocity: CGFloat, color: CGColor) {
 		pos = CGPoint(x: x, y: y)
@@ -26,10 +27,14 @@ class Ball : Collidable, Rendereable {
 	}
 	
 	func update(game: BreakoutGame) {
+		collided = false
+		
 		if hitsXWall(game.bounds) {
 			HorizontalWallCollision().perform(ball: self, collidable: nil)
+			collided = true
 		} else if hitsYWall(game.bounds) {
 			VerticalWallCollision().perform(ball: self, collidable: nil)
+			collided = true
 		}
 		
 		performCollisions(with: game.currentLevel.bricks,
@@ -46,16 +51,20 @@ class Ball : Collidable, Rendereable {
 	}
 	
 	private func performCollisions(with collidables: [Collidable], remover: ((Int) -> ())!) {
-		var i: Int = 0
-		for collidable in collidables {
-			let collision = collidable.collisionWith(ball: self)
-			if collision != nil {
-				collision!.perform(ball: self, collidable: collidable)
-				if collidable.destroyUponHit() {
-					remover(i)
+		if !collided {
+			var i: Int = 0
+			for collidable in collidables {
+				let collision = collidable.collisionWith(ball: self)
+				if collision != nil {
+					collision!.perform(ball: self, collidable: collidable)
+					if collidable.destroyUponHit() {
+						remover(i)
+					}
+					collided = true
+					break
 				}
+				i += 1
 			}
-			i += 1
 		}
 	}
 	

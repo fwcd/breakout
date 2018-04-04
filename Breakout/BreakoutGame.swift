@@ -31,7 +31,7 @@ class BreakoutGame : UIView {
 				height: frame.height * 0.02,
 				color: paddleColor)
 		
-		for _ in 0...initialBallCount {
+		for _ in 0..<initialBallCount {
 			balls.append(Ball(
 				x: frame.width / 2,
 				y: frame.height / 2,
@@ -73,8 +73,8 @@ class BreakoutGame : UIView {
 		let brickHeight: CGFloat = frame.height * 0.03
 		let startY: CGFloat = frame.height * 0.1
 		
-		for gridY in 0...yBricks {
-			for gridX in 0...xBricks {
+		for gridY in 0..<yBricks {
+			for gridX in 0..<xBricks {
 				let x: CGFloat = (CGFloat(gridX) * brickWidth) + brickPadding + offset.dx
 				let y: CGFloat = startY + (CGFloat(gridY) * brickHeight) + brickPadding + offset.dy
 				let w: CGFloat = brickWidth - (brickPadding * 2)

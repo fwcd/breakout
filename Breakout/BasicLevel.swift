@@ -14,6 +14,9 @@ class BasicLevel : Level {
 	var nextLevel: Level? {
 		get { return nil }
 	}
+	var yBricks: Int {
+		get { return 4 }
+	}
 	private var brickCounter: Int = 0
 	
 	func destroyBrick(at index: Int) {
@@ -21,7 +24,6 @@ class BasicLevel : Level {
 		if (brick.affectsLevelCounter()) {
 			brickCounter -= 1
 		}
-		print(brickCounter)
 	}
 	
 	func addBrick(bounds: CGRect) {
