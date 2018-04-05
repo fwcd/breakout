@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-class BasicLevel : Level {
+class BasicLevel: Level {
 	var bricks: [Brick] = [Brick]()
 	var nextLevel: Level? {
 		get { return nil }

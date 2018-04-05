@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MobileCoreServices
 
-class SettingsViewController : UITableViewController {
+class SettingsViewController: UITableViewController {
 	private var bgPickerDelegate: BackgroundImagePickerDelegate!
 	private var imgPickerController: UIImagePickerController!
 	@IBOutlet var imgView: UIImageView!

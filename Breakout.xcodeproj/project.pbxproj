@@ -31,7 +31,6 @@
 		359565A8207524960091FFF9 /* Moveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565A7207524960091FFF9 /* Moveable.swift */; };
 		359565AA20752B270091FFF9 /* Rendereable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565A920752B270091FFF9 /* Rendereable.swift */; };
 		359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565AD207545360091FFF9 /* SettingsViewController.swift */; };
-		359565B02075456C0091FFF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565AF2075456C0091FFF9 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		359565A7207524960091FFF9 /* Moveable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moveable.swift; sourceTree = "<group>"; };
 		359565A920752B270091FFF9 /* Rendereable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendereable.swift; sourceTree = "<group>"; };
 		359565AD207545360091FFF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		359565AF2075456C0091FFF9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				359565AD207545360091FFF9 /* SettingsViewController.swift */,
-				359565AF2075456C0091FFF9 /* SettingsView.swift */,
 				3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */,
 			);
 			name = Settings;
@@ -364,7 +361,6 @@
 				3595658C2073FAEE0091FFF9 /* Collidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
 				359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */,
-				359565B02075456C0091FFF9 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

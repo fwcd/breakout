@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-protocol Level : Moveable, Rendereable {
+protocol Level: Moveable, Rendereable {
 	var bricks: [Brick] { get }
 	var nextLevel: Level? { get }
 	var yBricks: Int { get }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreGraphics
 
-class Brick : Collidable, Rendereable {
+class Brick: Collidable, Rendereable {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	var bounds: CGRect!
 	

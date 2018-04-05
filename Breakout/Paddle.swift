@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-class Paddle : Collidable, Rendereable {
+class Paddle: Collidable, Rendereable {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	let color: CGColor
 	var bounds: CGRect

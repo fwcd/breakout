@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-class Ball : Collidable, Rendereable {
+class Ball: Collidable, Rendereable {
 	var radius: CGFloat
 	let color: CGColor
 	var velocity: CGVector

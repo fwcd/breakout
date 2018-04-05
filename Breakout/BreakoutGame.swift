@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BreakoutGame : UIView {
+class BreakoutGame: UIView {
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor

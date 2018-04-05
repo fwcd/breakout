@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UnbreakableBrick : Brick {
+class UnbreakableBrick: Brick {
 	override func getColor() -> CGColor {
 		return UIColor.red.cgColor
 	}

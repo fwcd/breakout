@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreakoutGameController : UIViewController {
+class BreakoutGameController: UIViewController {
 	private let preferredFPS = 30
 	private var displayLink: CADisplayLink!
 	private var loaded: Bool = false

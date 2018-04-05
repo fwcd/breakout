@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Level1 : BasicLevel {
+class Level1: BasicLevel {
 	override var yBricks: Int {
 		get { return 4 }
 	}

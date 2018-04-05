@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BackgroundImagePickerDelegate : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class BackgroundImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	private let onSelectImage: (UIImage) -> ()
 	
 	init(onSelectImage: @escaping (UIImage) -> ()) {
