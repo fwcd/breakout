@@ -14,8 +14,8 @@ class BreakoutGame : UIView {
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
 	private let xBricks: Int = 8
-	private let yBricks: Int = 5
 	
+	var backgroundImage: UIImage?
 	var currentLevel: Level = Level1()
 	var nextLevel: Level? = Level2()
 	private var transition: Transition?
@@ -73,7 +73,7 @@ class BreakoutGame : UIView {
 		let brickHeight: CGFloat = frame.height * 0.03
 		let startY: CGFloat = frame.height * 0.1
 		
-		for gridY in 0..<yBricks {
+		for gridY in 0..<level.yBricks {
 			for gridX in 0..<xBricks {
 				let x: CGFloat = (CGFloat(gridX) * brickWidth) + brickPadding + offset.dx
 				let y: CGFloat = startY + (CGFloat(gridY) * brickHeight) + brickPadding + offset.dy
@@ -88,6 +88,7 @@ class BreakoutGame : UIView {
 	override func draw(_ rect: CGRect) {
 		guard let context: CGContext = UIGraphicsGetCurrentContext() else { return }
 		
+		backgroundImage?.draw(in: bounds)
 		paddle.render(to: context)
 		for ball in balls {
 			ball.render(to: context)

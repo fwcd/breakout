@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 class Ball : Collidable, Rendereable {
-	let radius: CGFloat
+	var radius: CGFloat
 	let color: CGColor
 	var velocity: CGVector
 	var pos: CGPoint
@@ -48,6 +48,14 @@ class Ball : Collidable, Rendereable {
 		}
 		
 		move()
+	}
+	
+	func grow() {
+		radius *= 2
+	}
+	
+	func shrink() {
+		radius /= 2
 	}
 	
 	private func performCollisions(with collidables: [Collidable], remover: ((Int) -> ())!) {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +28,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="r0j-La-xRv" kind="show" id="Bnl-2Q-eie"/>
+                                    <segue destination="Vr7-YQ-l7W" kind="show" id="UbA-Qk-CpO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,34 +40,91 @@
             </objects>
             <point key="canvasLocation" x="31.875" y="37.5"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="UHj-Ss-Lt5">
+        <!--Settings-->
+        <scene sceneID="b5T-v1-y9D">
             <objects>
-                <viewController id="r0j-La-xRv" customClass="SettingsViewController" customModule="Breakout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gQY-Or-kUU"/>
-                        <viewControllerLayoutGuide type="bottom" id="fPn-OI-uuz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0qx-Ad-K74" customClass="SettingsView" customModule="Breakout" customModuleProvider="target">
+                <tableViewController id="NiP-hD-aqf" customClass="SettingsViewController" customModule="Breakout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xgq-jE-erq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrk-Cg-gv6">
-                                <rect key="frame" x="0.0" y="20" width="120" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back to Game"/>
-                                <connections>
-                                    <segue destination="bdm-tR-gYT" kind="unwind" unwindAction="returnToGameWithSender:" id="bm6-26-qdY"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vur-UX-kJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bdm-tR-gYT" userLabel="Exit" sceneMemberID="exit"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Appearance" id="0hf-YE-zfp">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jTj-mZ-AjC">
+                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jTj-mZ-AjC" id="G5X-he-oWk">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfI-u8-Atq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="O18-b2-d4D"/>
+                                                        <constraint firstAttribute="width" secondItem="TfI-u8-Atq" secondAttribute="height" multiplier="42:43" constant="1" id="yIK-A5-1pp"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsR-RX-eFM">
+                                                    <rect key="frame" x="43" y="0.0" width="277" height="43"/>
+                                                    <state key="normal" title="Change Background Image"/>
+                                                    <connections>
+                                                        <action selector="openImagePicker:" destination="NiP-hD-aqf" eventType="touchUpInside" id="PMt-a4-SDP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="top" secondItem="G5X-he-oWk" secondAttribute="top" id="K8L-W8-7Hh"/>
+                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="leading" secondItem="TfI-u8-Atq" secondAttribute="trailing" id="fOI-hx-oD2"/>
+                                                <constraint firstAttribute="bottom" secondItem="zsR-RX-eFM" secondAttribute="bottom" id="jtc-9S-Cu6"/>
+                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="leading" secondItem="G5X-he-oWk" secondAttribute="leading" id="pZD-up-ODW"/>
+                                                <constraint firstAttribute="trailing" secondItem="zsR-RX-eFM" secondAttribute="trailing" id="pvv-c1-IUs"/>
+                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="top" secondItem="zsR-RX-eFM" secondAttribute="top" id="x8O-2a-ycd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="NiP-hD-aqf" id="l7p-Wf-A3u"/>
+                            <outlet property="delegate" destination="NiP-hD-aqf" id="6iC-Sj-dTj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="GJZ-4n-eHg">
+                        <barButtonItem key="leftBarButtonItem" title="Back to Game" id="EB4-1f-KVA">
+                            <connections>
+                                <segue destination="gYc-7e-97P" kind="unwind" unwindAction="returnToGameWithSender:" id="4Cs-fz-Efv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imgView" destination="TfI-u8-Atq" id="ZWQ-aM-qRZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AES-yN-FNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gYc-7e-97P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="818" y="38"/>
+            <point key="canvasLocation" x="1860" y="37.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m3T-tU-t0T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vr7-YQ-l7W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="otQ-Dd-WjF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NiP-hD-aqf" kind="relationship" relationship="rootViewController" id="4Vc-Fe-VYt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87o-ZY-aQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="38"/>
         </scene>
     </scenes>
 </document>

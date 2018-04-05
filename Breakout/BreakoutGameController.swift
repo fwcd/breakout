@@ -51,9 +51,7 @@ class BreakoutGameController : UIViewController {
 	}
 	
 	@IBAction
-	func returnToGame(sender: UIStoryboardSegue) {
-		
-	}
+	func returnToGame(sender: UIStoryboardSegue) {}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

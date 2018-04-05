@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */; };
 		359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595654F2073D8F40091FFF9 /* AppDelegate.swift */; };
 		359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565512073D8F40091FFF9 /* BreakoutGameController.swift */; };
 		359565552073D8F40091FFF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359565532073D8F40091FFF9 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImagePickerDelegate.swift; sourceTree = "<group>"; };
 		3595654C2073D8F40091FFF9 /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3595654F2073D8F40091FFF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359565512073D8F40091FFF9 /* BreakoutGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakoutGameController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3528093920763B9800130579 /* Bricks */ = {
+			isa = PBXGroup;
+			children = (
+				359565832073DC3E0091FFF9 /* Brick.swift */,
+				3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */,
+				359565912074F3B50091FFF9 /* HardBrick.swift */,
+			);
+			name = Bricks;
+			sourceTree = "<group>";
+		};
 		359565432073D8F40091FFF9 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 			children = (
 				3595654F2073D8F40091FFF9 /* AppDelegate.swift */,
 				359565AC207545180091FFF9 /* Game */,
+				3528093920763B9800130579 /* Bricks */,
 				35956596207517FB0091FFF9 /* Levels */,
 				359565AB207544FA0091FFF9 /* Settings */,
 				359565532073D8F40091FFF9 /* Main.storyboard */,
@@ -177,6 +190,7 @@
 			children = (
 				359565AD207545360091FFF9 /* SettingsViewController.swift */,
 				359565AF2075456C0091FFF9 /* SettingsView.swift */,
+				3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -190,9 +204,6 @@
 				3595658D2073FE0F0091FFF9 /* Collision.swift */,
 				3595658B2073FAEE0091FFF9 /* Collidable.swift */,
 				359565872073E5B70091FFF9 /* Ball.swift */,
-				359565832073DC3E0091FFF9 /* Brick.swift */,
-				3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */,
-				359565912074F3B50091FFF9 /* HardBrick.swift */,
 				359565A5207524900091FFF9 /* Transition.swift */,
 				359565A7207524960091FFF9 /* Moveable.swift */,
 				359565A920752B270091FFF9 /* Rendereable.swift */,
@@ -348,6 +359,7 @@
 				359565AA20752B270091FFF9 /* Rendereable.swift in Sources */,
 				359565952075176E0091FFF9 /* Level.swift in Sources */,
 				359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */,
+				3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */,
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
 				3595658C2073FAEE0091FFF9 /* Collidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
@@ -601,6 +613,7 @@
 				359565762073D8F40091FFF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		359565772073D8F40091FFF9 /* Build configuration list for PBXNativeTarget "BreakoutTests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +622,7 @@
 				359565792073D8F40091FFF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3595657A2073D8F40091FFF9 /* Build configuration list for PBXNativeTarget "BreakoutUITests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +631,7 @@
 				3595657C2073D8F40091FFF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
