@@ -24,10 +24,16 @@ class BreakoutGame: UIView {
 	private(set) var nextLevel: Level? = Level2()
 	private var transition: Transition?
 	
+	private(set) var hud: HUD!
 	private(set) var paddle: Paddle!
 	private(set) var balls = [Ball]()
 	
 	func prepare(initialBallSpeed: CGFloat, initialBallCount: Int) {
+		hud = HUD(
+				x: 10,
+				y: 10,
+				color: UIColor.white,
+				fontSize: frame.height * 0.03)
 		paddle = Paddle(
 				centerX: frame.width / 2,
 				centerY: frame.height * 0.8,
@@ -54,7 +60,8 @@ class BreakoutGame: UIView {
 				start: CGPoint(x: 0, y: -frame.height),
 				goal: CGPoint(x: 0, y: 0),
 				speed: 3,
-				moveables: [currentLevel, nextLevel!])
+				moveables: [currentLevel, nextLevel!],
+				style: .accelerateAndDecelerate)
 		}
 	}
 	
@@ -99,5 +106,6 @@ class BreakoutGame: UIView {
 		}
 		currentLevel.render(to: context)
 		nextLevel?.render(to: context)
+		hud?.render(to: context)
 	}
 }

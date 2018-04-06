@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */; };
 		353708292077D12F00B89F79 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* Geometry.swift */; };
+		3537082B2077E5CA00B89F79 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082A2077E5CA00B89F79 /* HUD.swift */; };
+		3537082D2077F58400B89F79 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082C2077F58400B89F79 /* Level3.swift */; };
 		359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595654F2073D8F40091FFF9 /* AppDelegate.swift */; };
 		359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565512073D8F40091FFF9 /* BreakoutGameController.swift */; };
 		359565552073D8F40091FFF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359565532073D8F40091FFF9 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImagePickerDelegate.swift; sourceTree = "<group>"; };
 		353708282077D12F00B89F79 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		3537082A2077E5CA00B89F79 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		3537082C2077F58400B89F79 /* Level3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		3595654C2073D8F40091FFF9 /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3595654F2073D8F40091FFF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359565512073D8F40091FFF9 /* BreakoutGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakoutGameController.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				3595659B20751A650091FFF9 /* BasicLevel.swift */,
 				3595659F20751DB50091FFF9 /* Level1.swift */,
 				359565A12075200C0091FFF9 /* Level2.swift */,
+				3537082C2077F58400B89F79 /* Level3.swift */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			children = (
 				359565512073D8F40091FFF9 /* BreakoutGameController.swift */,
 				3595657D2073D9E00091FFF9 /* BreakoutGame.swift */,
+				3537082A2077E5CA00B89F79 /* HUD.swift */,
 				3595657F2073DB000091FFF9 /* Paddle.swift */,
 				3595658D2073FE0F0091FFF9 /* Collision.swift */,
 				359565872073E5B70091FFF9 /* Ball.swift */,
@@ -388,7 +394,9 @@
 				359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */,
 				359565A8207524960091FFF9 /* Moveable.swift in Sources */,
 				3595658E2073FE100091FFF9 /* Collision.swift in Sources */,
+				3537082B2077E5CA00B89F79 /* HUD.swift in Sources */,
 				3595659C20751A650091FFF9 /* BasicLevel.swift in Sources */,
+				3537082D2077F58400B89F79 /* Level3.swift in Sources */,
 				35E8C99420778411003561E1 /* Random.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,

@@ -26,11 +26,13 @@ class HardBrick: BasicBrick {
 	}
 	
 	override func destroyUponHit() -> Bool {
-		if (hitsLeft <= 0) {
+		if hitsLeft <= 0 {
 			return true
 		} else {
 			hitsLeft -= 1
-			color = color.copy(alpha: color.alpha / 2)!
+			if color.alpha > 0.2 {
+				color = color.copy(alpha: color.alpha / 2)!
+			}
 			return false
 		}
 	}
