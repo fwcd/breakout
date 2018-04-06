@@ -14,8 +14,8 @@ class HUD: Rendereable {
 	let pos: CGPoint
 	let color: UIColor
 	let fontSize: CGFloat
-	private var score: Int = 0
-	private var levelIndex: Int = 0
+	var score = Holder<Int>(with: 0)
+	var levelIndex = Holder<Int>(with: 0)
 	
 	init(pos: CGPoint, color: UIColor, fontSize: CGFloat) {
 		self.pos = pos
@@ -28,7 +28,7 @@ class HUD: Rendereable {
 	}
 	
 	private func getLine() -> String {
-		return "Score: \(score) - Level: \(levelIndex)"
+		return "Score: \(score.value) - Level: \(levelIndex.value)"
 	}
 	
 	func render(to context: CGContext) {
@@ -39,12 +39,4 @@ class HUD: Rendereable {
 		]
 		nsStr.draw(at: pos, withAttributes: attributes)
 	}
-	
-	func incrementScore() { score += 1 }
-	
-	func resetScore() { score = 0 }
-	
-	func incrementLevelIndex() { levelIndex += 1 }
-	
-	func resetLevelIndex() { levelIndex = 0 }
 }

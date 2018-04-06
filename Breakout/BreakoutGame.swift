@@ -28,12 +28,18 @@ class BreakoutGame: UIView {
 	private(set) var paddle: Paddle!
 	private(set) var balls = [Ball]()
 	
+	private(set) var score = Holder<Int>(with: 0)
+	private(set) var levelIndex = Holder<Int>(with: 1)
+	
 	func prepare(initialBallSpeed: CGFloat, initialBallCount: Int) {
 		hud = HUD(
 				x: 10,
 				y: 10,
 				color: UIColor.white,
 				fontSize: frame.height * 0.03)
+		hud.score = score
+		hud.levelIndex = levelIndex
+		
 		paddle = Paddle(
 				centerX: frame.width / 2,
 				centerY: frame.height * 0.8,
@@ -42,12 +48,14 @@ class BreakoutGame: UIView {
 				color: paddleColor)
 		
 		for _ in 0..<initialBallCount {
-			balls.append(Ball(
+			let ball = Ball(
 				x: frame.width / 2,
 				y: frame.height / 2,
 				radius: frame.height * 0.01,
 				initialVelocity: initialBallSpeed,
-				color: ballColor))
+				color: ballColor)
+			ball.score = score
+			balls.append(ball)
 		}
 		
 		prepare(level: currentLevel, offset: CGVector(dx: 0, dy: 0))
@@ -62,6 +70,7 @@ class BreakoutGame: UIView {
 				speed: 3,
 				moveables: [currentLevel, nextLevel!],
 				style: .accelerateAndDecelerate)
+			levelIndex.value += 1
 		}
 	}
 	

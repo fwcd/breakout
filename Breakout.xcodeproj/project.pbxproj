@@ -11,6 +11,7 @@
 		353708292077D12F00B89F79 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* Geometry.swift */; };
 		3537082B2077E5CA00B89F79 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082A2077E5CA00B89F79 /* HUD.swift */; };
 		3537082D2077F58400B89F79 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082C2077F58400B89F79 /* Level3.swift */; };
+		353708312077FC0A00B89F79 /* Holder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708302077FC0A00B89F79 /* Holder.swift */; };
 		359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595654F2073D8F40091FFF9 /* AppDelegate.swift */; };
 		359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565512073D8F40091FFF9 /* BreakoutGameController.swift */; };
 		359565552073D8F40091FFF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359565532073D8F40091FFF9 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		353708282077D12F00B89F79 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		3537082A2077E5CA00B89F79 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		3537082C2077F58400B89F79 /* Level3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
+		353708302077FC0A00B89F79 /* Holder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holder.swift; sourceTree = "<group>"; };
 		3595654C2073D8F40091FFF9 /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3595654F2073D8F40091FFF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359565512073D8F40091FFF9 /* BreakoutGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakoutGameController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				35E8C99320778411003561E1 /* Random.swift */,
 				353708282077D12F00B89F79 /* Geometry.swift */,
+				353708302077FC0A00B89F79 /* Holder.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				35E8C99420778411003561E1 /* Random.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,
+				353708312077FC0A00B89F79 /* Holder.swift in Sources */,
 				359565802073DB000091FFF9 /* Paddle.swift in Sources */,
 				359565A6207524900091FFF9 /* Transition.swift in Sources */,
 				3595657E2073D9E00091FFF9 /* BreakoutGame.swift in Sources */,

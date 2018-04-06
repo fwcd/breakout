@@ -16,6 +16,7 @@ class Ball: Collidable, Rendereable {
 	private(set) var radius: CGFloat
 	private(set) var pos: CGPoint
 	private var collided: Bool = false
+	var score = Holder<Int>(with: 0)
 	let color: CGColor
 	var velocity: CGVector
 	
@@ -68,6 +69,7 @@ class Ball: Collidable, Rendereable {
 				if collision != nil {
 					collision!.perform(ball: self, collidable: collidable)
 					if collidable.destroyUponHit() {
+						score.value += 1
 						remover(i)
 					}
 					collided = true
