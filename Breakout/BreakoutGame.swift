@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ * The game view that contains the paddle,
+ * balls and levels.
+ */
 class BreakoutGame: UIView {
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor

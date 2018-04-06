@@ -9,6 +9,9 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * An object that can be moved.
+ */
 protocol Moveable {
 	func move(by vec: CGVector)
 }

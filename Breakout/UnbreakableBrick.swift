@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class UnbreakableBrick: Brick {
+/**
+ * A brick that cannot be broken.
+ */
+class UnbreakableBrick: BasicBrick {
 	override func getColor() -> CGColor {
 		return UIColor.red.cgColor
 	}

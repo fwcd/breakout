@@ -9,6 +9,9 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * A template implementation of Level.
+ */
 class BasicLevel: Level {
 	var bricks: [Brick] = [Brick]()
 	var nextLevel: Level? {
@@ -36,7 +39,7 @@ class BasicLevel: Level {
 	}
 	
 	func sampleBrick() -> Brick {
-		return Brick()
+		return BasicBrick()
 	}
 	
 	func move(by vec: CGVector) {

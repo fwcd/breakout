@@ -25,7 +25,7 @@ class Level2: BasicLevel {
 		case 2:
 			return UnbreakableBrick()
 		default:
-			return Brick()
+			return BasicBrick()
 		}
 	}
 }

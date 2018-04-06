@@ -9,6 +9,10 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * A state of the game that encapsulates how many
+ * layers and which bricks should be used.
+ */
 protocol Level: Moveable, Rendereable {
 	var bricks: [Brick] { get }
 	var nextLevel: Level? { get }

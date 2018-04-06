@@ -9,6 +9,10 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * The object that the player can steer to
+ * control the game.
+ */
 class Paddle: Collidable, Rendereable {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	let color: CGColor

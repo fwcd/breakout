@@ -9,6 +9,11 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * A smooth, linear transition between
+ * two position states of a variable number
+ * of moveable objects.
+ */
 class Transition {
 	var current: CGPoint
 	var speed: CGFloat

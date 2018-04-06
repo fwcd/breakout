@@ -21,7 +21,7 @@ class Level1: BasicLevel {
 		case 0:
 			return HardBrick(resistance: 1)
 		default:
-			return Brick()
+			return BasicBrick()
 		}
 	}
 }

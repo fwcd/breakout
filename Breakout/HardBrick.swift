@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class HardBrick: Brick {
+/**
+ * A brick that breaks after a fixed number
+ * of hits.
+ */
+class HardBrick: BasicBrick {
 	var hitsLeft: Int // The amount of hits the brick can take before breaking
 	private var color: CGColor = UIColor.magenta.cgColor
 	

@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ * The controller that handles events and
+ * user input to control the game.
+ */
 class BreakoutGameController: UIViewController {
 	private let preferredFPS = 30
 	private var displayLink: CADisplayLink!

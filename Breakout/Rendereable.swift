@@ -9,6 +9,10 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * An object that can be visually rendered
+ * to a graphics context.
+ */
 protocol Rendereable {
 	func render(to context: CGContext)
 }

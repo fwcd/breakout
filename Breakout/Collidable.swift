@@ -9,9 +9,11 @@
 import Foundation
 import CoreGraphics
 
-protocol Collidable {
-	var velocity: CGVector { get set }
-	
+/**
+ * An object that can collide with a ball
+ * and optionally be destroyed.
+ */
+protocol Collidable: Moving {
 	func collisionWith(ball: Ball) -> Collision?
 	
 	func destroyUponHit() -> Bool

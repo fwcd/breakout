@@ -9,6 +9,10 @@
 import Foundation
 import CoreGraphics
 
+/**
+ * A collision between a ball and
+ * another collidable object.
+ */
 protocol Collision {
 	func perform(ball: Ball, collidable: Collidable!)
 }
