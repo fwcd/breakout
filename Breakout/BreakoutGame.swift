@@ -39,7 +39,7 @@ class BreakoutGame: UIView {
 			balls.append(Ball(
 				x: frame.width / 2,
 				y: frame.height / 2,
-				radius: frame.height * 0.03,
+				radius: frame.height * 0.01,
 				initialVelocity: initialBallSpeed,
 				color: ballColor))
 		}

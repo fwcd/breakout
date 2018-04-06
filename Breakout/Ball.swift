@@ -40,15 +40,14 @@ class Ball: Collidable, Rendereable {
 			collided = true
 		}
 		
-		performCollisions(with: game.currentLevel.bricks,
-		                  remover: {(i) -> () in game.currentLevel.destroyBrick(at: i)})
-		performCollisions(with: game.balls, remover: nil)
-		performCollisions(with: [game.paddle], remover: nil)
-		
 		if game.nextLevel != nil {
 			performCollisions(with: game.nextLevel!.bricks,
 			                  remover: {(i) -> () in game.nextLevel!.destroyBrick(at: i)})
 		}
+		performCollisions(with: [game.paddle], remover: nil)
+		performCollisions(with: game.currentLevel.bricks,
+		                  remover: {(i) -> () in game.currentLevel.destroyBrick(at: i)})
+		performCollisions(with: game.balls, remover: nil)
 		
 		move()
 	}
@@ -102,19 +101,11 @@ class Ball: Collidable, Rendereable {
 	}
 	
 	private func hitsX(_ x: CGFloat, _ rect: CGRect) -> Bool {
-		return containsX(x, rect) || containsX(x - radius, rect)
+		return abs(x - clamp(x, min: rect.minX, max: rect.maxX)) <= radius
 	}
 	
 	private func hitsY(_ y: CGFloat, _ rect: CGRect) -> Bool {
-		return containsY(y, rect) || containsY(y - radius, rect)
-	}
-	
-	private func containsX(_ x: CGFloat, _ rect: CGRect) -> Bool {
-		return x > rect.minX && x <= rect.maxX
-	}
-	
-	private func containsY(_ y: CGFloat, _ rect: CGRect) -> Bool {
-		return y > rect.minY && y <= rect.maxY
+		return abs(y - clamp(y, min: rect.minY, max: rect.maxY)) <= radius
 	}
 	
 	private func predictPos() -> CGPoint {
@@ -127,7 +118,7 @@ class Ball: Collidable, Rendereable {
 	
 	func render(to context: CGContext) {
 		context.setFillColor(color)
-		context.fillEllipse(in: CGRect(x: pos.x - radius, y: pos.y - radius, width: radius, height: radius))
+		context.fillEllipse(in: CGRect(x: pos.x - radius, y: pos.y - radius, width: (radius * 2), height: (radius * 2)))
 	}
 	
 	func collisionWith(ball: Ball) -> Collision? {
