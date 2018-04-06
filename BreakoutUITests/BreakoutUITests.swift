@@ -9,7 +9,6 @@
 import XCTest
 
 class BreakoutUITests: XCTestCase {
-        
     override func setUp() {
         super.setUp()
         
@@ -32,5 +31,4 @@ class BreakoutUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
 }

@@ -13,5 +13,6 @@ import CoreGraphics
  * A moving object with a velocity.
  */
 protocol Moving {
-	var velocity: CGVector { get set }
+	var velocity: CGVector { get }
+	var pos: CGPoint { get }
 }

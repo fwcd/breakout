@@ -34,6 +34,9 @@
 		35E8C98820774BB1003561E1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C98720774BB1003561E1 /* Item.swift */; };
 		35E8C98E20774CFB003561E1 /* Moving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C98D20774CFB003561E1 /* Moving.swift */; };
 		35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C98F20774FB3003561E1 /* BasicBrick.swift */; };
+		35E8C9922077834C003561E1 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9912077834C003561E1 /* BasicItem.swift */; };
+		35E8C99420778411003561E1 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C99320778411003561E1 /* Random.swift */; };
+		35E8C9972077859E003561E1 /* RandomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9962077859E003561E1 /* RandomTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		35E8C98720774BB1003561E1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		35E8C98D20774CFB003561E1 /* Moving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moving.swift; sourceTree = "<group>"; };
 		35E8C98F20774FB3003561E1 /* BasicBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBrick.swift; sourceTree = "<group>"; };
+		35E8C9912077834C003561E1 /* BasicItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicItem.swift; sourceTree = "<group>"; };
+		35E8C99320778411003561E1 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		35E8C9962077859E003561E1 /* RandomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 				35E8C98620774B7A003561E1 /* Items */,
 				35956596207517FB0091FFF9 /* Levels */,
 				359565AB207544FA0091FFF9 /* Settings */,
+				35E8C99520778416003561E1 /* Utilities */,
 				359565532073D8F40091FFF9 /* Main.storyboard */,
 				359565562073D8F40091FFF9 /* Assets.xcassets */,
 				359565582073D8F40091FFF9 /* LaunchScreen.storyboard */,
@@ -165,6 +172,7 @@
 		359565632073D8F40091FFF9 /* BreakoutTests */ = {
 			isa = PBXGroup;
 			children = (
+				35E8C9962077859E003561E1 /* RandomTest.swift */,
 				359565642073D8F40091FFF9 /* BreakoutTests.swift */,
 				359565662073D8F40091FFF9 /* Info.plist */,
 			);
@@ -221,8 +229,17 @@
 			isa = PBXGroup;
 			children = (
 				35E8C98720774BB1003561E1 /* Item.swift */,
+				35E8C9912077834C003561E1 /* BasicItem.swift */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		35E8C99520778416003561E1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35E8C99320778411003561E1 /* Random.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,12 +377,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E8C98820774BB1003561E1 /* Item.swift in Sources */,
+				35E8C9922077834C003561E1 /* BasicItem.swift in Sources */,
 				359565A22075200C0091FFF9 /* Level2.swift in Sources */,
 				359565A020751DB50091FFF9 /* Level1.swift in Sources */,
 				359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */,
 				359565A8207524960091FFF9 /* Moveable.swift in Sources */,
 				3595658E2073FE100091FFF9 /* Collision.swift in Sources */,
 				3595659C20751A650091FFF9 /* BasicLevel.swift in Sources */,
+				35E8C99420778411003561E1 /* Random.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,
 				359565802073DB000091FFF9 /* Paddle.swift in Sources */,
@@ -388,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E8C9972077859E003561E1 /* RandomTest.swift in Sources */,
 				359565652073D8F40091FFF9 /* BreakoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

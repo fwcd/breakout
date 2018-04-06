@@ -17,6 +17,9 @@ import CoreGraphics
 class BasicBrick: Brick {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	var bounds: CGRect!
+	var pos: CGPoint {
+		get { return bounds.origin }
+	}
 	
 	func placeIn(bounds: CGRect) {
 		self.bounds = bounds

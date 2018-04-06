@@ -10,5 +10,8 @@ import Foundation
 import CoreGraphics
 
 protocol Item: Rendereable, Collidable {
+	var texture: CGImage { get }
+	var radius: CGFloat { get }
 	
+	func onPickUp(game: BreakoutGame)
 }

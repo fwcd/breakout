@@ -13,11 +13,11 @@ import CoreGraphics
  * The central object that can destroy bricks.
  */
 class Ball: Collidable, Rendereable {
-	var radius: CGFloat
-	let color: CGColor
-	var velocity: CGVector
-	var pos: CGPoint
+	private(set) var radius: CGFloat
+	private(set) var pos: CGPoint
+	public let color: CGColor
 	private var collided: Bool = false
+	var velocity: CGVector
 	
 	init(x: CGFloat, y: CGFloat, radius: CGFloat, initialVelocity: CGFloat, color: CGColor) {
 		pos = CGPoint(x: x, y: y)
@@ -134,7 +134,7 @@ class Ball: Collidable, Rendereable {
 		if ball !== self {
 			let dist = sqrt(pow(ball.pos.x - pos.x, 2) + pow(ball.pos.y - pos.y, 2))
 			if dist < radius {
-				return BallCollision()
+				return VelocitySwapCollision()
 			}
 		}
 		

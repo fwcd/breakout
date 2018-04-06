@@ -14,6 +14,8 @@ import CoreGraphics
  * and optionally be destroyed.
  */
 protocol Collidable: Moving {
+	var velocity: CGVector { get set }
+	
 	func collisionWith(ball: Ball) -> Collision?
 	
 	func destroyUponHit() -> Bool

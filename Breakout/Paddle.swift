@@ -17,6 +17,9 @@ class Paddle: Collidable, Rendereable {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	let color: CGColor
 	var bounds: CGRect
+	var pos: CGPoint {
+		get { return bounds.origin }
+	}
 	
 	init(centerX: CGFloat, centerY: CGFloat, width: CGFloat, height: CGFloat, color: CGColor) {
 		bounds = CGRect(x: centerX - (width / 2), y: centerY - (height / 2), width: width, height: height)

@@ -10,7 +10,6 @@ import XCTest
 @testable import Breakout
 
 class BreakoutTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,5 +31,4 @@ class BreakoutTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }

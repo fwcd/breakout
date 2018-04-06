@@ -29,12 +29,11 @@ class VerticalWallCollision : Collision {
 	}
 }
 
-class BallCollision : Collision {
+class VelocitySwapCollision : Collision {
 	func perform(ball: Ball, collidable: Collidable!) {
 		var mutableCollidable: Collidable! = collidable
 		let ballVelocity: CGVector = ball.velocity
 		
-		// Swap velocities
 		ball.velocity = collidable.velocity
 		mutableCollidable.velocity = ballVelocity
 	}
