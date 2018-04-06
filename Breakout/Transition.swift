@@ -34,7 +34,7 @@ class Transition {
 			moveable.move(by: d)
 		}
 		
-		current = CGPoint(x: current.x + d.dx, y: current.y + d.dy)
+		current.addMutate(d)
 	}
 	
 	private func getDeltaVec() -> CGVector {

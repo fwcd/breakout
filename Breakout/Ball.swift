@@ -118,7 +118,7 @@ class Ball: Collidable, Rendereable {
 	}
 	
 	private func predictPos() -> CGPoint {
-		return CGPoint(x: pos.x + velocity.dx, y: pos.y + velocity.dy)
+		return pos.add(velocity)
 	}
 	
 	private func move() {
@@ -132,8 +132,7 @@ class Ball: Collidable, Rendereable {
 	
 	func collisionWith(ball: Ball) -> Collision? {
 		if ball !== self {
-			let dist = sqrt(pow(ball.pos.x - pos.x, 2) + pow(ball.pos.y - pos.y, 2))
-			if dist < radius {
+			if pos.distTo(point: ball.pos) < (radius + ball.radius) {
 				return VelocitySwapCollision()
 			}
 		}

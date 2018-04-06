@@ -19,13 +19,13 @@ protocol Collision {
 
 class HorizontalWallCollision : Collision {
 	func perform(ball: Ball, collidable: Collidable!) {
-		ball.velocity = CGVector(dx: -ball.velocity.dx, dy: ball.velocity.dy)
+		ball.velocity.invertXMutate()
 	}
 }
 
 class VerticalWallCollision : Collision {
 	func perform(ball: Ball, collidable: Collidable!) {
-		ball.velocity = CGVector(dx: ball.velocity.dx, dy: -ball.velocity.dy)
+		ball.velocity.invertYMutate()
 	}
 }
 
