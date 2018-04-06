@@ -14,7 +14,7 @@ class SettingsViewController: UITableViewController {
 	private var bgPickerDelegate: BackgroundImagePickerDelegate!
 	private var imgPickerController: UIImagePickerController!
 	@IBOutlet var imgView: UIImageView!
-	public private(set) var selectedImage: UIImage?
+	private(set) var selectedImage: UIImage?
 	
 	func updateImagePreview(with image: UIImage?) {
 		imgView.image = image

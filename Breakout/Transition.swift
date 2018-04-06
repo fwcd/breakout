@@ -15,8 +15,8 @@ import CoreGraphics
  * of moveable objects.
  */
 class Transition {
-	var current: CGPoint
-	var speed: CGFloat
+	private(set) var current: CGPoint
+	private(set) var speed: CGFloat
 	let goal: CGPoint
 	let moveables: [Moveable]
 	

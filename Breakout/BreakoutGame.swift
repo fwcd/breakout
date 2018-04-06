@@ -20,12 +20,12 @@ class BreakoutGame: UIView {
 	private let xBricks: Int = 8
 	
 	var backgroundImage: UIImage?
-	var currentLevel: Level = Level1()
-	var nextLevel: Level? = Level2()
+	private(set) var currentLevel: Level = Level1()
+	private(set) var nextLevel: Level? = Level2()
 	private var transition: Transition?
 	
-	var paddle: Paddle!
-	var balls = [Ball]()
+	private(set) var paddle: Paddle!
+	private(set) var balls = [Ball]()
 	
 	func prepare(initialBallSpeed: CGFloat, initialBallCount: Int) {
 		paddle = Paddle(

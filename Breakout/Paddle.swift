@@ -14,9 +14,9 @@ import CoreGraphics
  * control the game.
  */
 class Paddle: Collidable, Rendereable {
+	private(set) var bounds: CGRect
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	let color: CGColor
-	var bounds: CGRect
 	var pos: CGPoint {
 		get { return bounds.origin }
 	}

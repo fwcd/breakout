@@ -14,7 +14,7 @@ import UIKit
  * of hits.
  */
 class HardBrick: BasicBrick {
-	var hitsLeft: Int // The amount of hits the brick can take before breaking
+	private(set) var hitsLeft: Int // The amount of hits the brick can take before breaking
 	private var color: CGColor = UIColor.magenta.cgColor
 	
 	init(resistance: Int) {

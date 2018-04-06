@@ -15,8 +15,8 @@ import CoreGraphics
 class Ball: Collidable, Rendereable {
 	private(set) var radius: CGFloat
 	private(set) var pos: CGPoint
-	public let color: CGColor
 	private var collided: Bool = false
+	let color: CGColor
 	var velocity: CGVector
 	
 	init(x: CGFloat, y: CGFloat, radius: CGFloat, initialVelocity: CGFloat, color: CGColor) {

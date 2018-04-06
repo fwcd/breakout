@@ -13,11 +13,13 @@ class BasicItem: Item {
 	private(set) var pos: CGPoint
 	private(set) var texture: CGImage
 	private(set) var radius: CGFloat
+	private let textureSize: CGSize
 	var velocity: CGVector
 	
 	init(texture: CGImage, pos: CGPoint, speed: CGFloat) {
 		self.texture = texture
 		self.pos = pos
+		textureSize = CGSize(width: texture.width, height: texture.height)
 		radius = CGFloat(texture.width)
 		velocity = randomCGVector(length: speed)
 	}
@@ -27,7 +29,7 @@ class BasicItem: Item {
 	}
 	
 	func render(to context: CGContext) {
-		
+		context.draw(texture, in: CGRect(origin: pos, size: textureSize))
 	}
 	
 	func collisionWith(ball: Ball) -> Collision? {
