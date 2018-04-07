@@ -19,7 +19,7 @@ class Level1: BasicLevel {
 	override func sampleBrick() -> Brick {
 		switch (arc4random_uniform(6)) {
 		case 0:
-			return HardBrick(resistance: 1)
+			return HardBrick(resistance: 2)
 		default:
 			return BasicBrick()
 		}

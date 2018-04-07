@@ -41,6 +41,7 @@
 		35E8C9922077834C003561E1 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9912077834C003561E1 /* BasicItem.swift */; };
 		35E8C99420778411003561E1 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C99320778411003561E1 /* Random.swift */; };
 		35E8C9972077859E003561E1 /* RandomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9962077859E003561E1 /* RandomTest.swift */; };
+		35ED397F2078A874005489EF /* ItemBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED397E2078A874005489EF /* ItemBrick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		35E8C99320778411003561E1 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		35E8C9962077859E003561E1 /* RandomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTest.swift; sourceTree = "<group>"; };
 		35E8C9992077C33D003561E1 /* AppIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.pxm; sourceTree = "<group>"; };
+		35ED397E2078A874005489EF /* ItemBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemBrick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				35E8C98F20774FB3003561E1 /* BasicBrick.swift */,
 				3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */,
 				359565912074F3B50091FFF9 /* HardBrick.swift */,
+				35ED397E2078A874005489EF /* ItemBrick.swift */,
 			);
 			name = Bricks;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				359565922074F3B50091FFF9 /* HardBrick.swift in Sources */,
 				359565AA20752B270091FFF9 /* Rendereable.swift in Sources */,
 				359565952075176E0091FFF9 /* Level.swift in Sources */,
+				35ED397F2078A874005489EF /* ItemBrick.swift in Sources */,
 				359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */,
 				3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */,
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,

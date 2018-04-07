@@ -14,10 +14,12 @@ import UIKit
  * of hits.
  */
 class HardBrick: BasicBrick {
-	private(set) var hitsLeft: Int // The amount of hits the brick can take before breaking
+	let resistance: Int // The initial amount of hits the brick can take before breaking
+	private(set) var hitsLeft: Int // The current amount of hits the brick can take
 	private var color: CGColor = UIColor.magenta.cgColor
 	
 	init(resistance: Int) {
+		self.resistance = resistance
 		hitsLeft = resistance
 	}
 	
@@ -26,14 +28,26 @@ class HardBrick: BasicBrick {
 	}
 	
 	override func destroyUponHit() -> Bool {
-		if hitsLeft <= 0 {
+		if hitsLeft <= 1 {
 			return true
 		} else {
 			hitsLeft -= 1
-			if color.alpha > 0.2 {
+			if color.alpha > 0.4 {
 				color = color.copy(alpha: color.alpha / 2)!
 			}
 			return false
+		}
+	}
+	
+	override func render(to context: CGContext) {
+		super.render(to: context)
+		if hitsLeft < resistance {
+			let label = "\(hitsLeft)" as NSString
+			let attributes = [
+					NSFontAttributeName : UIFont.systemFont(ofSize: bounds.height * 0.75),
+					NSForegroundColorAttributeName : UIColor.white
+			]
+			label.draw(at: pos, withAttributes: attributes)
 		}
 	}
 }
