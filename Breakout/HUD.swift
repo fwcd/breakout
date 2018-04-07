@@ -27,7 +27,7 @@ class HUD: Rendereable {
 		self.init(pos: CGPoint(x: x, y: y), color: color, fontSize: fontSize)
 	}
 	
-	private func getLine() -> String {
+	func getLine() -> String {
 		return "Score: \(score.value) - Level: \(levelIndex.value)"
 	}
 	

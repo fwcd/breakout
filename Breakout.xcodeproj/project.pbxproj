@@ -47,6 +47,7 @@
 		35ED398520791545005489EF /* Rectangular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398420791545005489EF /* Rectangular.swift */; };
 		35ED398720792553005489EF /* SpawnBallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398620792553005489EF /* SpawnBallItem.swift */; };
 		35ED398B2079470D005489EF /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398A2079470D005489EF /* CollectionUtils.swift */; };
+		35ED398D20795358005489EF /* BreakoutGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398C20795358005489EF /* BreakoutGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		35ED398420791545005489EF /* Rectangular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangular.swift; sourceTree = "<group>"; };
 		35ED398620792553005489EF /* SpawnBallItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnBallItem.swift; sourceTree = "<group>"; };
 		35ED398A2079470D005489EF /* CollectionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
+		35ED398C20795358005489EF /* BreakoutGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			children = (
 				359565512073D8F40091FFF9 /* BreakoutGameController.swift */,
 				3595657D2073D9E00091FFF9 /* BreakoutGame.swift */,
+				35ED398C20795358005489EF /* BreakoutGameView.swift */,
 				3537082A2077E5CA00B89F79 /* HUD.swift */,
 				3595657F2073DB000091FFF9 /* Paddle.swift */,
 				3595658B2073FAEE0091FFF9 /* BallCollidable.swift */,
@@ -413,6 +416,7 @@
 				359565A22075200C0091FFF9 /* Level2.swift in Sources */,
 				359565A020751DB50091FFF9 /* Level1.swift in Sources */,
 				35ED398520791545005489EF /* Rectangular.swift in Sources */,
+				35ED398D20795358005489EF /* BreakoutGameView.swift in Sources */,
 				359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */,
 				359565A8207524960091FFF9 /* Moveable.swift in Sources */,
 				3595658E2073FE100091FFF9 /* BallCollision.swift in Sources */,

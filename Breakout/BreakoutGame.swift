@@ -10,10 +10,18 @@ import Foundation
 import UIKit
 
 /**
- * The game view that contains the paddle,
+ * The main game class that contains the paddle,
  * balls and levels.
  */
-class BreakoutGame: UIView {
+class BreakoutGame: Rendereable {
+	// TODO: Rearchitect this class to properly support MVC
+	
+	private let controller: BreakoutGameController
+	private let view: BreakoutGameView
+	var bounds: CGRect {
+		get { return view.bounds }
+	}
+	
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
@@ -33,21 +41,24 @@ class BreakoutGame: UIView {
 	private(set) var score = Holder<Int>(with: 0)
 	private(set) var levelIndex = Holder<Int>(with: 1)
 	
-	func prepare(initialBallSpeed: CGFloat, initialBallCount: Int) {
+	init(controller: BreakoutGameController, initialBallSpeed: CGFloat, initialBallCount: Int) {
+		self.controller = controller
+		view = controller.view as! BreakoutGameView
+		view.setGame(self)
 		self.initialBallSpeed = initialBallSpeed
 		hud = HUD(
 				x: 10,
 				y: 10,
 				color: UIColor.white,
-				fontSize: frame.height * 0.03)
+				fontSize: bounds.height * 0.03)
 		hud.score = score
 		hud.levelIndex = levelIndex
 		
 		paddle = Paddle(
-				centerX: frame.width / 2,
-				centerY: frame.height * 0.8,
-				width: frame.width * 0.2,
-				height: frame.height * 0.02,
+				centerX: bounds.width / 2,
+				centerY: bounds.height * 0.8,
+				width: bounds.width * 0.2,
+				height: bounds.height * 0.02,
 				color: paddleColor)
 		
 		for _ in 0..<initialBallCount {
@@ -59,9 +70,9 @@ class BreakoutGame: UIView {
 	
 	func spawnBall() {
 		let ball = Ball(
-			x: frame.width / 2,
-			y: frame.height / 2,
-			radius: frame.height * 0.01,
+			x: bounds.width / 2,
+			y: bounds.height / 2,
+			radius: bounds.height * 0.01,
 			initialVelocity: initialBallSpeed,
 			color: ballColor)
 		ball.score = score
@@ -70,9 +81,9 @@ class BreakoutGame: UIView {
 	
 	private func advanceToNextLevel() {
 		if transition == nil && nextLevel != nil {
-			prepare(level: nextLevel!, offset: CGVector(dx: 0, dy: -frame.height))
+			prepare(level: nextLevel!, offset: CGVector(dx: 0, dy: -bounds.height))
 			transition = Transition(
-				start: CGPoint(x: 0, y: -frame.height),
+				start: CGPoint(x: 0, y: -bounds.height),
 				goal: CGPoint(x: 0, y: 0),
 				speed: 3,
 				moveables: [currentLevel, nextLevel!],
@@ -110,11 +121,16 @@ class BreakoutGame: UIView {
 		}
 	}
 	
+	func gameOver() {
+		let alert = UIAlertController(title: "Game Over", message: hud.getLine(), preferredStyle: .alert)
+		controller.present(alert, animated: true, completion: nil)
+	}
+	
 	private func prepare(level: Level, offset: CGVector) {
-		let brickPadding: CGFloat = frame.height * 0.003
-		let brickWidth: CGFloat = frame.width / CGFloat(xBricks)
-		let brickHeight: CGFloat = frame.height * 0.03
-		let startY: CGFloat = frame.height * 0.1
+		let brickPadding: CGFloat = bounds.height * 0.003
+		let brickWidth: CGFloat = bounds.width / CGFloat(xBricks)
+		let brickHeight: CGFloat = bounds.height * 0.03
+		let startY: CGFloat = bounds.height * 0.1
 		
 		for gridY in 0..<level.yBricks {
 			for gridX in 0..<xBricks {
@@ -128,9 +144,7 @@ class BreakoutGame: UIView {
 		}
 	}
 	
-	override func draw(_ rect: CGRect) {
-		guard let context: CGContext = UIGraphicsGetCurrentContext() else { return }
-		
+	func render(to context: CGContext) {
 		backgroundImage?.draw(in: bounds)
 		paddle.render(to: context)
 		for ball in balls {

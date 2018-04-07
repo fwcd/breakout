@@ -41,6 +41,9 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 			collided = true
 		} else if hitsBottomWall(newPos.y, game.bounds) {
 			remove(self, from: &game.balls)
+			if game.balls.count == 0 {
+				game.gameOver()
+			}
 			return
 		}
 		
