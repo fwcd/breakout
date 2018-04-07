@@ -15,7 +15,7 @@ class BasicItem: Item {
 	private let background: UIImage = #imageLiteral(resourceName: "ItemBackground")
 	private var textureSize: CGSize!
 	private var acceleration: CGVector = CGVector(dx: 0, dy: 0.2)
-	private var game: BreakoutGame!
+	var game: BreakoutGame!
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	var texture: UIImage?
 	
@@ -35,6 +35,10 @@ class BasicItem: Item {
 		pos.addMutate(velocity)
 	}
 	
+	func collidesWith(paddle: Paddle) -> Bool {
+		return collisionOf(rect: paddle, withMovingCircle: self) != nil
+	}
+	
 	func onPickUp() {
 		// By default nothing happens
 	}
@@ -46,18 +50,7 @@ class BasicItem: Item {
 	}
 	
 	func collisionWith(ball: Ball) -> BallCollision? {
-		if ball !== self {
-			let dist = sqrt(pow(ball.pos.x - pos.x, 2) + pow(ball.pos.y - pos.y, 2))
-			if dist < radius {
-				return VelocitySwapCollision()
-			}
-		}
-		
-		return nil
-	}
-	
-	func onHit(ball: Ball) {
-		
+		return collisionOf(movingCircle: self, withMovingCircle: ball)
 	}
 	
 	func destroyUponHit() -> Bool {

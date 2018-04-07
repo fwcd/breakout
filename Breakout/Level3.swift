@@ -10,7 +10,7 @@ import Foundation
 
 class Level3: BasicLevel {
 	override var yBricks: Int {
-		get { return 9 }
+		get { return 6 }
 	}
 	override var nextLevel: Level? {
 		get { return Level3() } // TODO: Replace with next level as soon as it is available
@@ -27,9 +27,13 @@ class Level3: BasicLevel {
 		case 3:
 			return UnbreakableBrick()
 		case 4:
-			return ItemBrick()
+			return ItemBrick(item: sampleItem())
 		default:
 			return BasicBrick()
 		}
+	}
+	
+	override func sampleItem() -> Item {
+		return SpawnBallItem()
 	}
 }

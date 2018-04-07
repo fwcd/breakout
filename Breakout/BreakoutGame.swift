@@ -18,6 +18,7 @@ class BreakoutGame: UIView {
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
 	private let xBricks: Int = 8
+	private var initialBallSpeed: CGFloat!
 	
 	var backgroundImage: UIImage?
 	private(set) var currentLevel: Level = Level1()
@@ -33,6 +34,7 @@ class BreakoutGame: UIView {
 	private(set) var levelIndex = Holder<Int>(with: 1)
 	
 	func prepare(initialBallSpeed: CGFloat, initialBallCount: Int) {
+		self.initialBallSpeed = initialBallSpeed
 		hud = HUD(
 				x: 10,
 				y: 10,
@@ -49,17 +51,21 @@ class BreakoutGame: UIView {
 				color: paddleColor)
 		
 		for _ in 0..<initialBallCount {
-			let ball = Ball(
-				x: frame.width / 2,
-				y: frame.height / 2,
-				radius: frame.height * 0.01,
-				initialVelocity: initialBallSpeed,
-				color: ballColor)
-			ball.score = score
-			balls.append(ball)
+			spawnBall()
 		}
 		
 		prepare(level: currentLevel, offset: CGVector(dx: 0, dy: 0))
+	}
+	
+	func spawnBall() {
+		let ball = Ball(
+			x: frame.width / 2,
+			y: frame.height / 2,
+			radius: frame.height * 0.01,
+			initialVelocity: initialBallSpeed,
+			color: ballColor)
+		ball.score = score
+		balls.append(ball)
 	}
 	
 	private func advanceToNextLevel() {
@@ -85,9 +91,15 @@ class BreakoutGame: UIView {
 		
 		var i = 0
 		for item in items {
-			item.fall()
+			let pickUp: Bool = item.collidesWith(paddle: paddle)
 			
-			if item.pos.y > bounds.height {
+			if pickUp {
+				item.onPickUp()
+			} else {
+				item.fall()
+			}
+			
+			if pickUp || item.pos.y > bounds.height {
 				items.remove(at: i)
 			}
 			i += 1

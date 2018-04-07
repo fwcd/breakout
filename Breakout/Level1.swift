@@ -10,18 +10,22 @@ import Foundation
 
 class Level1: BasicLevel {
 	override var yBricks: Int {
-		get { return 4 }
+		get { return 2 }
 	}
 	override var nextLevel: Level? {
 		get { return Level2() }
 	}
 	
 	override func sampleBrick() -> Brick {
-		switch randomInt(from: 0, to: 6) {
+		switch randomInt(from: 0, to: 2) {
 		case 0:
-			return HardBrick(resistance: 2)
+			return ItemBrick(item: sampleItem())
 		default:
 			return BasicBrick()
 		}
+	}
+	
+	override func sampleItem() -> Item {
+		return SpawnBallItem()
 	}
 }

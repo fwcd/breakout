@@ -13,13 +13,19 @@ import UIKit
  * A brick that spawns an item upon being hit.
  */
 class ItemBrick: BasicBrick {
+	private let item: Item
+	
+	init(item: Item) {
+		self.item = item
+	}
+	
 	override func getColor() -> CGColor {
 		return UIColor.cyan.cgColor
 	}
 	
 	override func onHit(ball: Ball) {
-		let item = game.currentLevel.sampleItem()
 		item.place(at: pos, withSpeed: 2, andRadius: game.bounds.width * 0.15)
+		item.setGame(game)
 		game.items.append(item)
 	}
 	

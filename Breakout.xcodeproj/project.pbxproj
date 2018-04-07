@@ -45,6 +45,7 @@
 		35ED398120791484005489EF /* Circular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398020791484005489EF /* Circular.swift */; };
 		35ED3983207914B1005489EF /* Positioned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED3982207914B1005489EF /* Positioned.swift */; };
 		35ED398520791545005489EF /* Rectangular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398420791545005489EF /* Rectangular.swift */; };
+		35ED398720792553005489EF /* SpawnBallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398620792553005489EF /* SpawnBallItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		35ED398020791484005489EF /* Circular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circular.swift; sourceTree = "<group>"; };
 		35ED3982207914B1005489EF /* Positioned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Positioned.swift; sourceTree = "<group>"; };
 		35ED398420791545005489EF /* Rectangular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangular.swift; sourceTree = "<group>"; };
+		35ED398620792553005489EF /* SpawnBallItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnBallItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,13 +240,6 @@
 				3595658B2073FAEE0091FFF9 /* BallCollidable.swift */,
 				3595658D2073FE0F0091FFF9 /* BallCollision.swift */,
 				359565872073E5B70091FFF9 /* Ball.swift */,
-				359565A5207524900091FFF9 /* Transition.swift */,
-				35ED3982207914B1005489EF /* Positioned.swift */,
-				35E8C98D20774CFB003561E1 /* Moving.swift */,
-				359565A7207524960091FFF9 /* Moveable.swift */,
-				359565A920752B270091FFF9 /* Rendereable.swift */,
-				35ED398020791484005489EF /* Circular.swift */,
-				35ED398420791545005489EF /* Rectangular.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -254,6 +249,7 @@
 			children = (
 				35E8C98720774BB1003561E1 /* Item.swift */,
 				35E8C9912077834C003561E1 /* BasicItem.swift */,
+				35ED398620792553005489EF /* SpawnBallItem.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -264,6 +260,13 @@
 				35E8C99320778411003561E1 /* RandomUtils.swift */,
 				353708282077D12F00B89F79 /* GeometryUtils.swift */,
 				353708302077FC0A00B89F79 /* Holder.swift */,
+				359565A5207524900091FFF9 /* Transition.swift */,
+				35ED3982207914B1005489EF /* Positioned.swift */,
+				35E8C98D20774CFB003561E1 /* Moving.swift */,
+				359565A7207524960091FFF9 /* Moveable.swift */,
+				359565A920752B270091FFF9 /* Rendereable.swift */,
+				35ED398020791484005489EF /* Circular.swift */,
+				35ED398420791545005489EF /* Rectangular.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				3537082D2077F58400B89F79 /* Level3.swift in Sources */,
 				35E8C99420778411003561E1 /* RandomUtils.swift in Sources */,
 				35ED3983207914B1005489EF /* Positioned.swift in Sources */,
+				35ED398720792553005489EF /* SpawnBallItem.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,
 				353708312077FC0A00B89F79 /* Holder.swift in Sources */,

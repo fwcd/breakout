@@ -14,6 +14,8 @@ protocol Item: Circular, Rendereable, BallCollidable {
 	
 	func fall()
 	
+	func collidesWith(paddle: Paddle) -> Bool
+	
 	func place(at pos: CGPoint, withSpeed speed: CGFloat, andRadius radius: CGFloat)
 	
 	func onPickUp()

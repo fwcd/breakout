@@ -25,7 +25,7 @@ class BreakoutGameController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		if (!loaded) {
-			bView.prepare(initialBallSpeed: 9, initialBallCount: 20)
+			bView.prepare(initialBallSpeed: 9, initialBallCount: 1)
 			
 			// Initialize gameloop
 			
