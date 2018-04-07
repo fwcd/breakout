@@ -27,6 +27,7 @@ class BreakoutGame: UIView {
 	private(set) var hud: HUD!
 	private(set) var paddle: Paddle!
 	private(set) var balls = [Ball]()
+	var items = [Item]()
 	
 	private(set) var score = Holder<Int>(with: 0)
 	private(set) var levelIndex = Holder<Int>(with: 1)
@@ -82,6 +83,16 @@ class BreakoutGame: UIView {
 			transition = nil
 		}
 		
+		var i = 0
+		for item in items {
+			item.fall()
+			
+			if item.pos.y > bounds.height {
+				items.remove(at: i)
+			}
+			i += 1
+		}
+		
 		if currentLevel.isCompleted() {
 			advanceToNextLevel()
 		}
@@ -100,7 +111,7 @@ class BreakoutGame: UIView {
 				let w: CGFloat = brickWidth - (brickPadding * 2)
 				let h: CGFloat = brickHeight - (brickPadding * 2)
 				
-				level.addBrick(bounds: CGRect(x: x, y: y, width: w, height: h))
+				level.addBrick(in: CGRect(x: x, y: y, width: w, height: h), with: self)
 			}
 		}
 	}
@@ -115,6 +126,9 @@ class BreakoutGame: UIView {
 		}
 		currentLevel.render(to: context)
 		nextLevel?.render(to: context)
+		for item in items {
+			item.render(to: context)
+		}
 		hud?.render(to: context)
 	}
 }

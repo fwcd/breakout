@@ -12,7 +12,7 @@ import CoreGraphics
 /**
  * The central object that can destroy bricks.
  */
-class Ball: Collidable, Rendereable {
+class Ball: Circular, BallCollidable, Rendereable {
 	private(set) var radius: CGFloat
 	private(set) var pos: CGPoint
 	private var collided: Bool = false
@@ -25,9 +25,8 @@ class Ball: Collidable, Rendereable {
 		self.radius = radius
 		self.color = color
 		
-		// Choose a random angle between 200 and 340 degrees
-		let angle: CGFloat = CGFloat(Double(arc4random_uniform(200) + 340) / Double(360)) * 2 * CGFloat.pi
-		velocity = CGVector(dx: cos(angle) * initialVelocity, dy: sin(angle) * initialVelocity)
+		let angle: CGFloat = randomAngleRad(betweenDeg: 200, andDeg: 340)
+		velocity = CGVector(angleRad: angle, length: initialVelocity)
 	}
 	
 	func update(game: BreakoutGame) {
@@ -61,13 +60,14 @@ class Ball: Collidable, Rendereable {
 		radius /= 2
 	}
 	
-	private func performCollisions(with collidables: [Collidable], remover: ((Int) -> ())!) {
+	private func performCollisions(with collidables: [BallCollidable], remover: ((Int) -> ())!) {
 		if !collided {
 			var i: Int = 0
 			for collidable in collidables {
 				let collision = collidable.collisionWith(ball: self)
 				if collision != nil {
 					collision!.perform(ball: self, collidable: collidable)
+					collidable.onHit(ball: self)
 					if collidable.destroyUponHit() {
 						score.value += 1
 						remover(i)
@@ -77,18 +77,6 @@ class Ball: Collidable, Rendereable {
 				}
 				i += 1
 			}
-		}
-	}
-	
-	func rectCollisionWith(_ rect: CGRect) -> Collision? {
-		let newPos = predictPos()
-		
-		if !hitsX(pos.x, rect) && hitsX(newPos.x, rect) && hitsY(pos.y, rect) && hitsY(newPos.y, rect) {
-			return HorizontalWallCollision()
-		} else if !hitsY(pos.y, rect) && hitsY(newPos.y, rect) && hitsX(pos.x, rect) && hitsX(newPos.x, rect) {
-			return VerticalWallCollision()
-		} else {
-			return nil
 		}
 	}
 	
@@ -102,20 +90,8 @@ class Ball: Collidable, Rendereable {
 		return (y - radius) < 0 || y >= bounds.height
 	}
 	
-	private func hitsX(_ x: CGFloat, _ rect: CGRect) -> Bool {
-		return abs(x - clamp(x, min: rect.minX, max: rect.maxX)) <= radius
-	}
-	
-	private func hitsY(_ y: CGFloat, _ rect: CGRect) -> Bool {
-		return abs(y - clamp(y, min: rect.minY, max: rect.maxY)) <= radius
-	}
-	
-	private func predictPos() -> CGPoint {
-		return pos.add(velocity)
-	}
-	
 	private func move() {
-		pos = predictPos()
+		pos.addMutate(velocity)
 	}
 	
 	func render(to context: CGContext) {
@@ -123,11 +99,9 @@ class Ball: Collidable, Rendereable {
 		context.fillEllipse(in: CGRect(x: pos.x - radius, y: pos.y - radius, width: (radius * 2), height: (radius * 2)))
 	}
 	
-	func collisionWith(ball: Ball) -> Collision? {
+	func collisionWith(ball: Ball) -> BallCollision? {
 		if ball !== self {
-			if pos.distTo(point: ball.pos) < (radius + ball.radius) {
-				return VelocitySwapCollision()
-			}
+			return collisionOf(movingCircle: self, withMovingCircle: ball)
 		}
 		
 		return nil

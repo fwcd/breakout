@@ -1,5 +1,5 @@
 //
-//  Geometry.swift
+//  GeometryUtils.swift
 //  Breakout
 //
 //  Created by Fredrik on 06.04.18.
@@ -16,6 +16,46 @@ func clamp<T: Comparable>(_ v: T, min minValue: T, max maxValue: T) -> T {
 		return minValue
 	} else {
 		return v
+	}
+}
+
+fileprivate func circleHits(x: CGFloat, ofRect rect: CGRect, withRadius radius: CGFloat) -> Bool {
+	return abs(x - clamp(x, min: rect.minX, max: rect.maxX)) <= radius
+}
+
+fileprivate func circleHits(y: CGFloat, ofRect rect: CGRect, withRadius radius: CGFloat) -> Bool {
+	return abs(y - clamp(y, min: rect.minY, max: rect.maxY)) <= radius
+}
+
+func collisionOf(rect: Rectangular, withMovingCircle circle: Circular & Moving) -> BallCollision? {
+	let newPos = circle.predictPos()
+	let xCollides =
+			!circleHits(x: circle.pos.x, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(x: newPos.x, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(y: circle.pos.y, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(y: newPos.y, ofRect: rect.bounds, withRadius: circle.radius)
+	let yCollides =
+			!circleHits(y: circle.pos.y, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(y: newPos.y, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(x: circle.pos.x, ofRect: rect.bounds, withRadius: circle.radius)
+			&& circleHits(x: newPos.x, ofRect: rect.bounds, withRadius: circle.radius)
+	
+	if xCollides && !yCollides {
+		return HorizontalWallCollision()
+	} else if yCollides && !xCollides {
+		return VerticalWallCollision()
+	} else if xCollides && yCollides {
+		return InvertWallCollision()
+	} else {
+		return nil
+	}
+}
+
+func collisionOf(movingCircle circle: Circular & Moving, withMovingCircle otherCircle: Circular & Moving) -> BallCollision? {
+	if circle.pos.distTo(point: otherCircle.pos) < (circle.radius + otherCircle.radius) {
+		return VelocitySwapCollision()
+	} else {
+		return nil
 	}
 }
 
@@ -46,6 +86,12 @@ extension CGPoint {
 	
 	func to(point other: CGPoint) -> CGVector {
 		return CGVector(dx: other.x - x, dy: other.y - y)
+	}
+}
+
+extension CGRect {
+	var center: CGPoint {
+		get { return CGPoint(x: minX + (width / 2), y: minY + (height / 2)) }
 	}
 }
 
@@ -110,6 +156,11 @@ extension CGVector {
 	
 	func invert() -> CGVector {
 		return CGVector(dx: -dx, dy: -dy)
+	}
+	
+	mutating func invertMutate() {
+		dx *= -1
+		dy *= -1
 	}
 	
 	func normalize() -> CGVector {

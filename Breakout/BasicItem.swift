@@ -7,32 +7,45 @@
 //
 
 import Foundation
-import CoreGraphics
+import UIKit
 
 class BasicItem: Item {
-	private(set) var pos: CGPoint
-	private(set) var texture: CGImage
-	private(set) var radius: CGFloat
-	private let textureSize: CGSize
-	var velocity: CGVector
+	private(set) var pos: CGPoint = CGPoint(x: 0, y: 0)
+	private(set) var radius: CGFloat = 80
+	private let background: UIImage = #imageLiteral(resourceName: "ItemBackground")
+	private var textureSize: CGSize!
+	private var acceleration: CGVector = CGVector(dx: 0, dy: 0.2)
+	private var game: BreakoutGame!
+	var velocity: CGVector = CGVector(dx: 0, dy: 0)
+	var texture: UIImage?
 	
-	init(texture: CGImage, pos: CGPoint, speed: CGFloat) {
-		self.texture = texture
+	func place(at pos: CGPoint, withSpeed speed: CGFloat, andRadius radius: CGFloat) {
 		self.pos = pos
-		textureSize = CGSize(width: texture.width, height: texture.height)
-		radius = CGFloat(texture.width)
-		velocity = randomCGVector(length: speed)
+		self.radius = radius
+		textureSize = CGSize(width: radius, height: radius)
+		velocity = CGVector(dx: 0, dy: speed)
 	}
 	
-	func onPickUp(game: BreakoutGame) {
-		
+	func setGame(_ game: BreakoutGame) {
+		self.game = game
+	}
+	
+	func fall() {
+		velocity.addMutate(acceleration)
+		pos.addMutate(velocity)
+	}
+	
+	func onPickUp() {
+		// By default nothing happens
 	}
 	
 	func render(to context: CGContext) {
-		context.draw(texture, in: CGRect(origin: pos, size: textureSize))
+		let rect = CGRect(origin: pos, size: textureSize)
+		background.draw(in: rect)
+		texture?.draw(in: rect)
 	}
 	
-	func collisionWith(ball: Ball) -> Collision? {
+	func collisionWith(ball: Ball) -> BallCollision? {
 		if ball !== self {
 			let dist = sqrt(pow(ball.pos.x - pos.x, 2) + pow(ball.pos.y - pos.y, 2))
 			if dist < radius {
@@ -41,6 +54,10 @@ class BasicItem: Item {
 		}
 		
 		return nil
+	}
+	
+	func onHit(ball: Ball) {
+		
 	}
 	
 	func destroyUponHit() -> Bool {

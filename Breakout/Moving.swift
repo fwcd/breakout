@@ -12,7 +12,14 @@ import CoreGraphics
 /**
  * A moving object with a velocity.
  */
-protocol Moving {
+protocol Moving: Positioned {
 	var velocity: CGVector { get }
-	var pos: CGPoint { get }
+	
+	func predictPos() -> CGPoint
+}
+
+extension Moving {
+	func predictPos() -> CGPoint {
+		return pos.add(velocity)
+	}
 }

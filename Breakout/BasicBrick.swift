@@ -16,9 +16,11 @@ import CoreGraphics
  */
 class BasicBrick: Brick {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
-	var bounds: CGRect!
-	var pos: CGPoint {
-		get { return bounds.origin }
+	var bounds: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+	var game: BreakoutGame!
+	
+	func setGame(_ game: BreakoutGame) {
+		self.game = game
 	}
 	
 	func placeIn(bounds: CGRect) {
@@ -42,8 +44,12 @@ class BasicBrick: Brick {
 		context.fill(bounds)
 	}
 	
-	func collisionWith(ball: Ball) -> Collision? {
-		return ball.rectCollisionWith(bounds)
+	func collisionWith(ball: Ball) -> BallCollision? {
+		return collisionOf(rect: self, withMovingCircle: ball)
+	}
+	
+	func onHit(ball: Ball) {
+		// Do nothing by default
 	}
 	
 	func destroyUponHit() -> Bool {

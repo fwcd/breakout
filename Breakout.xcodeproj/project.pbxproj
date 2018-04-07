@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */; };
-		353708292077D12F00B89F79 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* Geometry.swift */; };
+		353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* GeometryUtils.swift */; };
 		3537082B2077E5CA00B89F79 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082A2077E5CA00B89F79 /* HUD.swift */; };
 		3537082D2077F58400B89F79 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082C2077F58400B89F79 /* Level3.swift */; };
 		353708312077FC0A00B89F79 /* Holder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708302077FC0A00B89F79 /* Holder.swift */; };
@@ -23,8 +23,8 @@
 		359565802073DB000091FFF9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595657F2073DB000091FFF9 /* Paddle.swift */; };
 		359565842073DC3E0091FFF9 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565832073DC3E0091FFF9 /* Brick.swift */; };
 		359565882073E5B70091FFF9 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565872073E5B70091FFF9 /* Ball.swift */; };
-		3595658C2073FAEE0091FFF9 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595658B2073FAEE0091FFF9 /* Collidable.swift */; };
-		3595658E2073FE100091FFF9 /* Collision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595658D2073FE0F0091FFF9 /* Collision.swift */; };
+		3595658C2073FAEE0091FFF9 /* BallCollidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595658B2073FAEE0091FFF9 /* BallCollidable.swift */; };
+		3595658E2073FE100091FFF9 /* BallCollision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595658D2073FE0F0091FFF9 /* BallCollision.swift */; };
 		359565902074F2A80091FFF9 /* UnbreakableBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */; };
 		359565922074F3B50091FFF9 /* HardBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565912074F3B50091FFF9 /* HardBrick.swift */; };
 		359565952075176E0091FFF9 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359565942075176E0091FFF9 /* Level.swift */; };
@@ -39,9 +39,12 @@
 		35E8C98E20774CFB003561E1 /* Moving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C98D20774CFB003561E1 /* Moving.swift */; };
 		35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C98F20774FB3003561E1 /* BasicBrick.swift */; };
 		35E8C9922077834C003561E1 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9912077834C003561E1 /* BasicItem.swift */; };
-		35E8C99420778411003561E1 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C99320778411003561E1 /* Random.swift */; };
+		35E8C99420778411003561E1 /* RandomUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C99320778411003561E1 /* RandomUtils.swift */; };
 		35E8C9972077859E003561E1 /* RandomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8C9962077859E003561E1 /* RandomTest.swift */; };
 		35ED397F2078A874005489EF /* ItemBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED397E2078A874005489EF /* ItemBrick.swift */; };
+		35ED398120791484005489EF /* Circular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398020791484005489EF /* Circular.swift */; };
+		35ED3983207914B1005489EF /* Positioned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED3982207914B1005489EF /* Positioned.swift */; };
+		35ED398520791545005489EF /* Rectangular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398420791545005489EF /* Rectangular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImagePickerDelegate.swift; sourceTree = "<group>"; };
-		353708282077D12F00B89F79 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		353708282077D12F00B89F79 /* GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryUtils.swift; sourceTree = "<group>"; };
 		3537082A2077E5CA00B89F79 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		3537082C2077F58400B89F79 /* Level3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		353708302077FC0A00B89F79 /* Holder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holder.swift; sourceTree = "<group>"; };
@@ -84,8 +87,8 @@
 		3595657F2073DB000091FFF9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		359565832073DC3E0091FFF9 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		359565872073E5B70091FFF9 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
-		3595658B2073FAEE0091FFF9 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
-		3595658D2073FE0F0091FFF9 /* Collision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collision.swift; sourceTree = "<group>"; };
+		3595658B2073FAEE0091FFF9 /* BallCollidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallCollidable.swift; sourceTree = "<group>"; };
+		3595658D2073FE0F0091FFF9 /* BallCollision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallCollision.swift; sourceTree = "<group>"; };
 		3595658F2074F2A80091FFF9 /* UnbreakableBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnbreakableBrick.swift; sourceTree = "<group>"; };
 		359565912074F3B50091FFF9 /* HardBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardBrick.swift; sourceTree = "<group>"; };
 		359565942075176E0091FFF9 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -100,10 +103,13 @@
 		35E8C98D20774CFB003561E1 /* Moving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moving.swift; sourceTree = "<group>"; };
 		35E8C98F20774FB3003561E1 /* BasicBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBrick.swift; sourceTree = "<group>"; };
 		35E8C9912077834C003561E1 /* BasicItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicItem.swift; sourceTree = "<group>"; };
-		35E8C99320778411003561E1 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		35E8C99320778411003561E1 /* RandomUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUtils.swift; sourceTree = "<group>"; };
 		35E8C9962077859E003561E1 /* RandomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTest.swift; sourceTree = "<group>"; };
 		35E8C9992077C33D003561E1 /* AppIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.pxm; sourceTree = "<group>"; };
 		35ED397E2078A874005489EF /* ItemBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemBrick.swift; sourceTree = "<group>"; };
+		35ED398020791484005489EF /* Circular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circular.swift; sourceTree = "<group>"; };
+		35ED3982207914B1005489EF /* Positioned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Positioned.swift; sourceTree = "<group>"; };
+		35ED398420791545005489EF /* Rectangular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,13 +235,16 @@
 				3595657D2073D9E00091FFF9 /* BreakoutGame.swift */,
 				3537082A2077E5CA00B89F79 /* HUD.swift */,
 				3595657F2073DB000091FFF9 /* Paddle.swift */,
-				3595658D2073FE0F0091FFF9 /* Collision.swift */,
+				3595658B2073FAEE0091FFF9 /* BallCollidable.swift */,
+				3595658D2073FE0F0091FFF9 /* BallCollision.swift */,
 				359565872073E5B70091FFF9 /* Ball.swift */,
 				359565A5207524900091FFF9 /* Transition.swift */,
-				3595658B2073FAEE0091FFF9 /* Collidable.swift */,
+				35ED3982207914B1005489EF /* Positioned.swift */,
 				35E8C98D20774CFB003561E1 /* Moving.swift */,
 				359565A7207524960091FFF9 /* Moveable.swift */,
 				359565A920752B270091FFF9 /* Rendereable.swift */,
+				35ED398020791484005489EF /* Circular.swift */,
+				35ED398420791545005489EF /* Rectangular.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -252,8 +261,8 @@
 		35E8C99520778416003561E1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				35E8C99320778411003561E1 /* Random.swift */,
-				353708282077D12F00B89F79 /* Geometry.swift */,
+				35E8C99320778411003561E1 /* RandomUtils.swift */,
+				353708282077D12F00B89F79 /* GeometryUtils.swift */,
 				353708302077FC0A00B89F79 /* Holder.swift */,
 			);
 			name = Utilities;
@@ -397,18 +406,21 @@
 				35E8C9922077834C003561E1 /* BasicItem.swift in Sources */,
 				359565A22075200C0091FFF9 /* Level2.swift in Sources */,
 				359565A020751DB50091FFF9 /* Level1.swift in Sources */,
+				35ED398520791545005489EF /* Rectangular.swift in Sources */,
 				359565522073D8F40091FFF9 /* BreakoutGameController.swift in Sources */,
 				359565A8207524960091FFF9 /* Moveable.swift in Sources */,
-				3595658E2073FE100091FFF9 /* Collision.swift in Sources */,
+				3595658E2073FE100091FFF9 /* BallCollision.swift in Sources */,
 				3537082B2077E5CA00B89F79 /* HUD.swift in Sources */,
 				3595659C20751A650091FFF9 /* BasicLevel.swift in Sources */,
 				3537082D2077F58400B89F79 /* Level3.swift in Sources */,
-				35E8C99420778411003561E1 /* Random.swift in Sources */,
+				35E8C99420778411003561E1 /* RandomUtils.swift in Sources */,
+				35ED3983207914B1005489EF /* Positioned.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,
 				353708312077FC0A00B89F79 /* Holder.swift in Sources */,
 				359565802073DB000091FFF9 /* Paddle.swift in Sources */,
 				359565A6207524900091FFF9 /* Transition.swift in Sources */,
+				35ED398120791484005489EF /* Circular.swift in Sources */,
 				3595657E2073D9E00091FFF9 /* BreakoutGame.swift in Sources */,
 				359565902074F2A80091FFF9 /* UnbreakableBrick.swift in Sources */,
 				359565922074F3B50091FFF9 /* HardBrick.swift in Sources */,
@@ -418,10 +430,10 @@
 				359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */,
 				3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */,
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
-				3595658C2073FAEE0091FFF9 /* Collidable.swift in Sources */,
+				3595658C2073FAEE0091FFF9 /* BallCollidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
 				359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */,
-				353708292077D12F00B89F79 /* Geometry.swift in Sources */,
+				353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

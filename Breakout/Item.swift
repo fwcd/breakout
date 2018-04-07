@@ -9,9 +9,12 @@
 import Foundation
 import CoreGraphics
 
-protocol Item: Rendereable, Collidable {
-	var texture: CGImage { get }
-	var radius: CGFloat { get }
+protocol Item: Circular, Rendereable, BallCollidable {
+	func setGame(_ game: BreakoutGame)
 	
-	func onPickUp(game: BreakoutGame)
+	func fall()
+	
+	func place(at pos: CGPoint, withSpeed speed: CGFloat, andRadius radius: CGFloat)
+	
+	func onPickUp()
 }

@@ -1,5 +1,5 @@
 //
-//  Random.swift
+//  RandomUtils.swift
 //  Breakout
 //
 //  Created by Fredrik on 06.04.18.
@@ -68,8 +68,20 @@ func randomBool() -> Bool {
 /**
  * Generates a random angle in radians.
  */
-func randomAngleRad() -> Float {
-	return randomFloat(from: 0, to: 2 * Float.pi)
+func randomAngleRad() -> CGFloat {
+	return randomCGFloat(from: 0, to: 2 * CGFloat.pi)
+}
+
+func toRadians(degrees: CGFloat) -> CGFloat {
+	return (degrees / 360.0) * 2 * CGFloat.pi
+}
+
+func toDegrees(radians: CGFloat) -> CGFloat {
+	return (radians / (2 * CGFloat.pi)) * 360.0
+}
+
+func randomAngleRad(betweenDeg startDeg: CGFloat, andDeg endDeg: CGFloat) -> CGFloat {
+	return randomCGFloat(from: toRadians(degrees: startDeg), to: toRadians(degrees: endDeg))
 }
 
 /**
@@ -77,6 +89,6 @@ func randomAngleRad() -> Float {
  * random direction with a given length.
  */
 func randomCGVector(length: CGFloat) -> CGVector {
-	let angle: Float = randomAngleRad()
+	let angle: CGFloat = randomAngleRad()
 	return CGVector(dx: length * CGFloat(cos(angle)), dy: length * CGFloat(sin(angle)))
 }

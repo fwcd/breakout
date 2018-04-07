@@ -14,18 +14,20 @@ import CoreGraphics
  * A rectangular object in the game
  * that responds to collisions with balls.
  */
-protocol Brick: Collidable, Rendereable {
-	var bounds: CGRect! { get }
+protocol Brick: Rectangular, BallCollidable, Rendereable {
+	func setGame(_ game: BreakoutGame)
 	
-	func placeIn(bounds: CGRect);
+	func placeIn(bounds: CGRect)
 	
-	func placeAt(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat);
+	func placeAt(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
 	
-	func move(by vec: CGVector);
+	func move(by vec: CGVector)
 	
-	func getColor() -> CGColor;
+	func getColor() -> CGColor
 	
-	func destroyUponHit() -> Bool;
-	
-	func affectsLevelCounter() -> Bool;
+	/**
+	 * Whether the brick is required to
+	 * be destroyed to complete the level.
+	 */
+	func affectsLevelCounter() -> Bool
 }

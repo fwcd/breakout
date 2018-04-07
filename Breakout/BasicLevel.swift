@@ -29,13 +29,19 @@ class BasicLevel: Level {
 		}
 	}
 	
-	func addBrick(bounds: CGRect) {
+	func addBrick(in bounds: CGRect, with game: BreakoutGame) {
 		let brick = sampleBrick()
+		brick.setGame(game)
 		brick.placeIn(bounds: bounds)
 		bricks.append(brick)
 		if (brick.affectsLevelCounter()) {
 			brickCounter += 1
 		}
+	}
+	
+	func sampleItem() -> Item {
+		print("Warning: sampleItem() is not implemented by the current level")
+		return BasicItem()
 	}
 	
 	func sampleBrick() -> Brick {

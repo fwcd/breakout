@@ -13,7 +13,7 @@ import CoreGraphics
  * The object that the player can steer to
  * control the game.
  */
-class Paddle: Collidable, Rendereable {
+class Paddle: Rectangular, BallCollidable, Rendereable {
 	private(set) var bounds: CGRect
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	let color: CGColor
@@ -31,8 +31,8 @@ class Paddle: Collidable, Rendereable {
 		context.fill(bounds)
 	}
 	
-	func collisionWith(ball: Ball) -> Collision? {
-		return ball.rectCollisionWith(bounds)
+	func collisionWith(ball: Ball) -> BallCollision? {
+		return collisionOf(rect: self, withMovingCircle: ball)
 	}
 	
 	func moveTo(x: CGFloat) {

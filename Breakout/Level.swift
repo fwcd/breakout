@@ -20,7 +20,9 @@ protocol Level: Moveable, Rendereable {
 	
 	func destroyBrick(at index: Int)
 	
-	func addBrick(bounds: CGRect)
+	func addBrick(in bounds: CGRect, with game: BreakoutGame)
+	
+	func sampleItem() -> Item
 	
 	func isCompleted() -> Bool
 }

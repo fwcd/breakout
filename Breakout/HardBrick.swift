@@ -27,16 +27,15 @@ class HardBrick: BasicBrick {
 		return color
 	}
 	
-	override func destroyUponHit() -> Bool {
-		if hitsLeft <= 1 {
-			return true
-		} else {
-			hitsLeft -= 1
-			if color.alpha > 0.4 {
-				color = color.copy(alpha: color.alpha / 2)!
-			}
-			return false
+	override func onHit(ball: Ball) {
+		hitsLeft -= 1
+		if color.alpha > 0.4 {
+			color = color.copy(alpha: color.alpha / 2)!
 		}
+	}
+	
+	override func destroyUponHit() -> Bool {
+		return hitsLeft <= 0
 	}
 	
 	override func render(to context: CGContext) {
