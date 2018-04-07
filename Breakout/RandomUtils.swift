@@ -9,6 +9,10 @@
 import Foundation
 import CoreGraphics
 
+func randomInt() -> Int {
+	return Int(arc4random_uniform(UINT32_MAX))
+}
+
 /**
  * Generates a random integer from (inclusive)
  * to (exclusive) a number.

@@ -12,7 +12,7 @@ import CoreGraphics
 /**
  * The central object that can destroy bricks.
  */
-class Ball: Circular, BallCollidable, Rendereable {
+class Ball: Circular, BallCollidable, Rendereable, Equatable {
 	private(set) var radius: CGFloat
 	private(set) var pos: CGPoint
 	private var collided: Bool = false
@@ -31,13 +31,17 @@ class Ball: Circular, BallCollidable, Rendereable {
 	
 	func update(game: BreakoutGame) {
 		collided = false
+		let newPos = predictPos()
 		
-		if hitsXWall(game.bounds) {
+		if hitsSideWall(newPos.x, game.bounds) {
 			HorizontalWallCollision().perform(ball: self, collidable: nil)
 			collided = true
-		} else if hitsYWall(game.bounds) {
+		} else if hitsTopWall(newPos.y, game.bounds) {
 			VerticalWallCollision().perform(ball: self, collidable: nil)
 			collided = true
+		} else if hitsBottomWall(newPos.y, game.bounds) {
+			remove(self, from: &game.balls)
+			return
 		}
 		
 		if game.nextLevel != nil {
@@ -80,14 +84,16 @@ class Ball: Circular, BallCollidable, Rendereable {
 		}
 	}
 	
-	private func hitsXWall(_ bounds: CGRect) -> Bool {
-		let x = pos.x + velocity.dx
-		return (x - radius) < 0 || x >= bounds.width
+	private func hitsSideWall(_ x: CGFloat, _ bounds: CGRect) -> Bool {
+		return (x - radius) <= 0 || (x + radius) >= bounds.width
 	}
 	
-	private func hitsYWall(_ bounds: CGRect) -> Bool {
-		let y = pos.y + velocity.dy
-		return (y - radius) < 0 || y >= bounds.height
+	private func hitsTopWall(_ y: CGFloat, _ bounds: CGRect) -> Bool {
+		return (y - radius) <= 0
+	}
+	
+	private func hitsBottomWall(_ y: CGFloat, _ bounds: CGRect) -> Bool {
+		return (y + radius) >= bounds.height
 	}
 	
 	private func move() {
@@ -109,5 +115,9 @@ class Ball: Circular, BallCollidable, Rendereable {
 	
 	func destroyUponHit() -> Bool {
 		return false
+	}
+	
+	static func ==(lhs: Ball, rhs: Ball) -> Bool {
+		return lhs === rhs
 	}
 }

@@ -46,6 +46,7 @@
 		35ED3983207914B1005489EF /* Positioned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED3982207914B1005489EF /* Positioned.swift */; };
 		35ED398520791545005489EF /* Rectangular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398420791545005489EF /* Rectangular.swift */; };
 		35ED398720792553005489EF /* SpawnBallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398620792553005489EF /* SpawnBallItem.swift */; };
+		35ED398B2079470D005489EF /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED398A2079470D005489EF /* CollectionUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		35ED3982207914B1005489EF /* Positioned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Positioned.swift; sourceTree = "<group>"; };
 		35ED398420791545005489EF /* Rectangular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangular.swift; sourceTree = "<group>"; };
 		35ED398620792553005489EF /* SpawnBallItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnBallItem.swift; sourceTree = "<group>"; };
+		35ED398A2079470D005489EF /* CollectionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 			children = (
 				35E8C99320778411003561E1 /* RandomUtils.swift */,
 				353708282077D12F00B89F79 /* GeometryUtils.swift */,
+				35ED398A2079470D005489EF /* CollectionUtils.swift */,
 				353708302077FC0A00B89F79 /* Holder.swift */,
 				359565A5207524900091FFF9 /* Transition.swift */,
 				35ED3982207914B1005489EF /* Positioned.swift */,
@@ -432,6 +435,7 @@
 				359565952075176E0091FFF9 /* Level.swift in Sources */,
 				35ED397F2078A874005489EF /* ItemBrick.swift in Sources */,
 				359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */,
+				35ED398B2079470D005489EF /* CollectionUtils.swift in Sources */,
 				3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */,
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
 				3595658C2073FAEE0091FFF9 /* BallCollidable.swift in Sources */,

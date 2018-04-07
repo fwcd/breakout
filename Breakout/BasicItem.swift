@@ -56,4 +56,8 @@ class BasicItem: Item {
 	func destroyUponHit() -> Bool {
 		return true
 	}
+	
+	static func ==(lhs: BasicItem, rhs: BasicItem) -> Bool {
+		return lhs === rhs
+	}
 }

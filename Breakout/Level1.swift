@@ -17,7 +17,7 @@ class Level1: BasicLevel {
 	}
 	
 	override func sampleBrick() -> Brick {
-		switch randomInt(from: 0, to: 2) {
+		switch randomInt(from: 0, to: 3) {
 		case 0:
 			return ItemBrick(item: sampleItem())
 		default:

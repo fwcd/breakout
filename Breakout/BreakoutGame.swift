@@ -27,7 +27,7 @@ class BreakoutGame: UIView {
 	
 	private(set) var hud: HUD!
 	private(set) var paddle: Paddle!
-	private(set) var balls = [Ball]()
+	var balls = [Ball]()
 	var items = [Item]()
 	
 	private(set) var score = Holder<Int>(with: 0)
