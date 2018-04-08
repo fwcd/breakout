@@ -14,23 +14,26 @@ import UIKit
  * balls and levels.
  */
 class BreakoutGame: Rendereable {
-	// TODO: Rearchitect this class to properly support MVC
-	
 	private let controller: BreakoutGameController
 	private let view: BreakoutGameView
-	var bounds: CGRect {
-		get { return view.bounds }
-	}
 	
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
-	private let xBricks: Int = 8
-	private var initialBallSpeed: CGFloat!
-	
 	var backgroundImage: UIImage?
-	private(set) var currentLevel: Level = Level1()
-	private(set) var nextLevel: Level? = Level2()
+	var bounds: CGRect {
+		get { return view.bounds }
+	}
+	
+	private let xBricks: Int = 8
+	private let initialBallSpeed: CGFloat
+	private let initialBallCount: Int
+	
+	private var initialLevel: Level {
+		get { return Level1() }
+	}
+	private(set) var currentLevel: Level!
+	private(set) var nextLevel: Level?
 	private var transition: Transition?
 	
 	private(set) var hud: HUD!
@@ -43,9 +46,11 @@ class BreakoutGame: Rendereable {
 	
 	init(controller: BreakoutGameController, initialBallSpeed: CGFloat, initialBallCount: Int) {
 		self.controller = controller
+		self.initialBallSpeed = initialBallSpeed
+		self.initialBallCount = initialBallCount
+		
 		view = controller.view as! BreakoutGameView
 		view.setGame(self)
-		self.initialBallSpeed = initialBallSpeed
 		hud = HUD(
 				x: 10,
 				y: 10,
@@ -61,10 +66,20 @@ class BreakoutGame: Rendereable {
 				height: bounds.height * 0.02,
 				color: paddleColor)
 		
+		restart()
+	}
+	
+	func restart() {
+		score.value = 0
+		levelIndex.value = 1
+		
+		balls.removeAll()
 		for _ in 0..<initialBallCount {
 			spawnBall()
 		}
 		
+		currentLevel = initialLevel
+		nextLevel = currentLevel.nextLevel
 		prepare(level: currentLevel, offset: CGVector(dx: 0, dy: 0))
 	}
 	
@@ -123,6 +138,8 @@ class BreakoutGame: Rendereable {
 	
 	func gameOver() {
 		let alert = UIAlertController(title: "Game Over", message: hud.getLine(), preferredStyle: .alert)
+		let action = UIAlertAction(title: "Restart", style: .default, handler: {(a) -> () in self.restart()})
+		alert.addAction(action)
 		controller.present(alert, animated: true, completion: nil)
 	}
 	
