@@ -62,25 +62,72 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="O18-b2-d4D"/>
+                                                        <constraint firstAttribute="width" secondItem="TfI-u8-Atq" secondAttribute="height" multiplier="1:1" id="bwl-cX-JaR"/>
                                                         <constraint firstAttribute="width" secondItem="TfI-u8-Atq" secondAttribute="height" multiplier="42:43" constant="1" id="yIK-A5-1pp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsR-RX-eFM">
-                                                    <rect key="frame" x="43" y="0.0" width="277" height="43"/>
+                                                    <rect key="frame" x="67" y="7" width="186" height="30"/>
                                                     <state key="normal" title="Change Background Image"/>
                                                     <connections>
-                                                        <action selector="openImagePicker:" destination="NiP-hD-aqf" eventType="touchUpInside" id="PMt-a4-SDP"/>
+                                                        <action selector="openImagePicker:" destination="NiP-hD-aqf" eventType="touchUpInside" id="vU5-di-IhW"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="top" secondItem="G5X-he-oWk" secondAttribute="top" id="K8L-W8-7Hh"/>
-                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="leading" secondItem="TfI-u8-Atq" secondAttribute="trailing" id="fOI-hx-oD2"/>
-                                                <constraint firstAttribute="bottom" secondItem="zsR-RX-eFM" secondAttribute="bottom" id="jtc-9S-Cu6"/>
-                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="leading" secondItem="G5X-he-oWk" secondAttribute="leading" id="pZD-up-ODW"/>
-                                                <constraint firstAttribute="trailing" secondItem="zsR-RX-eFM" secondAttribute="trailing" id="pvv-c1-IUs"/>
-                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="top" secondItem="zsR-RX-eFM" secondAttribute="top" id="x8O-2a-ycd"/>
+                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="centerY" secondItem="G5X-he-oWk" secondAttribute="centerY" id="aOX-vz-T1k"/>
+                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="centerY" secondItem="G5X-he-oWk" secondAttribute="centerY" id="bex-bt-A5D"/>
+                                                <constraint firstItem="zsR-RX-eFM" firstAttribute="centerX" secondItem="G5X-he-oWk" secondAttribute="centerX" id="eNL-dp-gHs"/>
+                                                <constraint firstItem="TfI-u8-Atq" firstAttribute="leading" secondItem="G5X-he-oWk" secondAttribute="leading" id="rhk-It-5AP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wbw-bi-OCa">
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbw-bi-OCa" id="hXZ-7g-N44">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJh-16-HRa">
+                                                    <rect key="frame" x="75" y="7" width="171" height="30"/>
+                                                    <state key="normal" title="Reset Background Image"/>
+                                                    <connections>
+                                                        <action selector="resetBackgroundImage:" destination="NiP-hD-aqf" eventType="touchUpInside" id="YSa-by-Ov3"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HJh-16-HRa" firstAttribute="centerX" secondItem="hXZ-7g-N44" secondAttribute="centerX" id="lmn-3L-nOn"/>
+                                                <constraint firstItem="HJh-16-HRa" firstAttribute="centerY" secondItem="hXZ-7g-N44" secondAttribute="centerY" id="rc2-rz-dis"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Development" id="K5a-1X-5Fe">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t0l-j0-HnX">
+                                        <rect key="frame" x="0.0" y="199.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0l-j0-HnX" id="xT4-Ub-MWh">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e85-hQ-EsX">
+                                                    <rect key="frame" x="5" y="6" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Test Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-64-gDd">
+                                                    <rect key="frame" x="99" y="13" width="122.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HmS-64-gDd" firstAttribute="centerY" secondItem="xT4-Ub-MWh" secondAttribute="centerY" id="6gk-sJ-VsB"/>
+                                                <constraint firstItem="HmS-64-gDd" firstAttribute="centerX" secondItem="xT4-Ub-MWh" secondAttribute="centerX" id="PQn-Fw-d8e"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -101,6 +148,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgView" destination="TfI-u8-Atq" id="ZWQ-aM-qRZ"/>
+                        <outlet property="testModeSwitch" destination="e85-hQ-EsX" id="KsW-v9-aTh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AES-yN-FNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="1860" y="37.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="m3T-tU-t0T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vr7-YQ-l7W" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vr7-YQ-l7W" customClass="SettingsNavigationController" customModule="Breakout" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="otQ-Dd-WjF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

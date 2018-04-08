@@ -34,6 +34,11 @@ class Level3: BasicLevel {
 	}
 	
 	override func sampleItem() -> Item {
-		return SpawnBallItem()
+		switch randomInt(from: 0, to: 2) {
+		case 0:
+			return GrowBallItem()
+		default:
+			return SpawnBallItem()
+		}
 	}
 }

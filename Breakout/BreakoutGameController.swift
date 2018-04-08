@@ -13,7 +13,8 @@ import UIKit
  * user input to control the game.
  */
 class BreakoutGameController: UIViewController {
-	private let preferredFPS = 30
+	private let settingsModel = SettingsModel()
+	private let preferredFPS = 30 // TODO: Use 60 FPS, but adjust game speed accordingly
 	private var displayLink: CADisplayLink!
 	private var loaded: Bool = false
 	private(set) var game: BreakoutGame!
@@ -24,6 +25,8 @@ class BreakoutGameController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		if (!loaded) {
 			game = BreakoutGame(controller: self, initialBallSpeed: 9, initialBallCount: 1)
+			game.testModeEnabled = settingsModel.testModeEnabled
+			game.backgroundImage = settingsModel.backgroundImage
 			
 			// Initialize gameloop
 			
@@ -43,17 +46,23 @@ class BreakoutGameController: UIViewController {
 	
 	@objc
 	private func gameLoop() {
-		game.update()
-		
-		for ball in game.balls {
-			ball.update(game: game)
+		if !view.isHidden {
+			game.update()
+			
+			for ball in game.balls {
+				ball.update(game: game)
+			}
+			
+			view.setNeedsDisplay()
 		}
-		
-		view.setNeedsDisplay()
 	}
 	
 	@IBAction
 	func returnToGame(sender: UIStoryboardSegue) {}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		(segue.destination as? SettingsNavigationController)?.settings?.setModel(settingsModel)
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

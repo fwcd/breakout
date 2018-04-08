@@ -17,19 +17,19 @@ protocol BallCollision {
 	func perform(ball: Ball, collidable: BallCollidable!)
 }
 
-class HorizontalWallCollision: BallCollision {
+class InvertXCollision: BallCollision {
 	func perform(ball: Ball, collidable: BallCollidable!) {
 		ball.velocity.invertXMutate()
 	}
 }
 
-class VerticalWallCollision: BallCollision {
+class InvertYCollision: BallCollision {
 	func perform(ball: Ball, collidable: BallCollidable!) {
 		ball.velocity.invertYMutate()
 	}
 }
 
-class InvertWallCollision: BallCollision {
+class InvertCollision: BallCollision {
 	func perform(ball: Ball, collidable: BallCollidable!) {
 		ball.velocity.invertMutate()
 	}

@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class SpawnBallItem: BasicItem {
-	override init() {
-		super.init()
-		texture = #imageLiteral(resourceName: "SpawnBallItemTexture")
+	override func loadTexture() -> UIImage? {
+		return #imageLiteral(resourceName: "SpawnBallItemTexture")
 	}
 	
 	override func onPickUp() {

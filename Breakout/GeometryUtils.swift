@@ -41,11 +41,11 @@ func collisionOf(rect: Rectangular, withMovingCircle circle: Circular & Moving) 
 			&& circleHits(x: newPos.x, ofRect: rect.bounds, withRadius: circle.radius)
 	
 	if xCollides && !yCollides {
-		return HorizontalWallCollision()
+		return InvertXCollision()
 	} else if yCollides && !xCollides {
-		return VerticalWallCollision()
+		return InvertYCollision()
 	} else if xCollides && yCollides {
-		return InvertWallCollision()
+		return InvertCollision()
 	} else {
 		return nil
 	}
@@ -92,6 +92,19 @@ extension CGPoint {
 extension CGRect {
 	var center: CGPoint {
 		get { return CGPoint(x: minX + (width / 2), y: minY + (height / 2)) }
+	}
+	
+	func contains(_ circular: Circular) -> Bool {
+		return contains(circular, withPadding: 0)
+	}
+	
+	func contains(_ circular: Circular, withPadding padding: CGFloat) -> Bool {
+		let pos = circular.pos
+		let r = circular.radius + padding
+		return (pos.x - r) > minX
+			&& (pos.x + r) < maxX
+			&& (pos.y - r) > minY
+			&& (pos.y + r) < maxY
 	}
 }
 

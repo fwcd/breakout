@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35276909207A467600938B72 /* BallEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276908207A467600938B72 /* BallEffect.swift */; };
+		3527690B207A4D9400938B72 /* GrowBallEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527690A207A4D9400938B72 /* GrowBallEffect.swift */; };
+		3527690D207A4EEF00938B72 /* GrowBallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527690C207A4EEF00938B72 /* GrowBallItem.swift */; };
+		3527690F207A60E900938B72 /* DateSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527690E207A60E900938B72 /* DateSpan.swift */; };
+		35276911207A8FCA00938B72 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276910207A8FCA00938B72 /* SettingsModel.swift */; };
+		35276913207A9B1400938B72 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276912207A9B1400938B72 /* SettingsNavigationController.swift */; };
 		3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */; };
 		353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* GeometryUtils.swift */; };
 		3537082B2077E5CA00B89F79 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082A2077E5CA00B89F79 /* HUD.swift */; };
@@ -68,6 +74,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35276908207A467600938B72 /* BallEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallEffect.swift; sourceTree = "<group>"; };
+		3527690A207A4D9400938B72 /* GrowBallEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowBallEffect.swift; sourceTree = "<group>"; };
+		3527690C207A4EEF00938B72 /* GrowBallItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowBallItem.swift; sourceTree = "<group>"; };
+		3527690E207A60E900938B72 /* DateSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSpan.swift; sourceTree = "<group>"; };
+		35276910207A8FCA00938B72 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		35276912207A9B1400938B72 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImagePickerDelegate.swift; sourceTree = "<group>"; };
 		353708282077D12F00B89F79 /* GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryUtils.swift; sourceTree = "<group>"; };
 		3537082A2077E5CA00B89F79 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
@@ -143,6 +155,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35276907207A465900938B72 /* Ball */ = {
+			isa = PBXGroup;
+			children = (
+				359565872073E5B70091FFF9 /* Ball.swift */,
+				3595658B2073FAEE0091FFF9 /* BallCollidable.swift */,
+				3595658D2073FE0F0091FFF9 /* BallCollision.swift */,
+				35276908207A467600938B72 /* BallEffect.swift */,
+				3527690A207A4D9400938B72 /* GrowBallEffect.swift */,
+			);
+			name = Ball;
+			sourceTree = "<group>";
+		};
 		3528093920763B9800130579 /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +204,7 @@
 			children = (
 				3595654F2073D8F40091FFF9 /* AppDelegate.swift */,
 				359565AC207545180091FFF9 /* Game */,
+				35276907207A465900938B72 /* Ball */,
 				3528093920763B9800130579 /* Bricks */,
 				35E8C98620774B7A003561E1 /* Items */,
 				35956596207517FB0091FFF9 /* Levels */,
@@ -229,7 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				359565AD207545360091FFF9 /* SettingsViewController.swift */,
+				35276912207A9B1400938B72 /* SettingsNavigationController.swift */,
 				3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */,
+				35276910207A8FCA00938B72 /* SettingsModel.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -242,9 +269,6 @@
 				35ED398C20795358005489EF /* BreakoutGameView.swift */,
 				3537082A2077E5CA00B89F79 /* HUD.swift */,
 				3595657F2073DB000091FFF9 /* Paddle.swift */,
-				3595658B2073FAEE0091FFF9 /* BallCollidable.swift */,
-				3595658D2073FE0F0091FFF9 /* BallCollision.swift */,
-				359565872073E5B70091FFF9 /* Ball.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -255,6 +279,7 @@
 				35E8C98720774BB1003561E1 /* Item.swift */,
 				35E8C9912077834C003561E1 /* BasicItem.swift */,
 				35ED398620792553005489EF /* SpawnBallItem.swift */,
+				3527690C207A4EEF00938B72 /* GrowBallItem.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -273,6 +298,7 @@
 				359565A920752B270091FFF9 /* Rendereable.swift */,
 				35ED398020791484005489EF /* Circular.swift */,
 				35ED398420791545005489EF /* Rectangular.swift */,
+				3527690E207A60E900938B72 /* DateSpan.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -424,8 +450,10 @@
 				3595659C20751A650091FFF9 /* BasicLevel.swift in Sources */,
 				3537082D2077F58400B89F79 /* Level3.swift in Sources */,
 				35E8C99420778411003561E1 /* RandomUtils.swift in Sources */,
+				3527690F207A60E900938B72 /* DateSpan.swift in Sources */,
 				35ED3983207914B1005489EF /* Positioned.swift in Sources */,
 				35ED398720792553005489EF /* SpawnBallItem.swift in Sources */,
+				35276911207A8FCA00938B72 /* SettingsModel.swift in Sources */,
 				35E8C99020774FB3003561E1 /* BasicBrick.swift in Sources */,
 				35E8C98E20774CFB003561E1 /* Moving.swift in Sources */,
 				353708312077FC0A00B89F79 /* Holder.swift in Sources */,
@@ -435,17 +463,21 @@
 				3595657E2073D9E00091FFF9 /* BreakoutGame.swift in Sources */,
 				359565902074F2A80091FFF9 /* UnbreakableBrick.swift in Sources */,
 				359565922074F3B50091FFF9 /* HardBrick.swift in Sources */,
+				3527690D207A4EEF00938B72 /* GrowBallItem.swift in Sources */,
 				359565AA20752B270091FFF9 /* Rendereable.swift in Sources */,
 				359565952075176E0091FFF9 /* Level.swift in Sources */,
 				35ED397F2078A874005489EF /* ItemBrick.swift in Sources */,
 				359565502073D8F40091FFF9 /* AppDelegate.swift in Sources */,
+				35276913207A9B1400938B72 /* SettingsNavigationController.swift in Sources */,
 				35ED398B2079470D005489EF /* CollectionUtils.swift in Sources */,
 				3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */,
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
 				3595658C2073FAEE0091FFF9 /* BallCollidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
 				359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */,
+				3527690B207A4D9400938B72 /* GrowBallEffect.swift in Sources */,
 				353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */,
+				35276909207A467600938B72 /* BallEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

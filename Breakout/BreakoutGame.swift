@@ -20,7 +20,6 @@ class BreakoutGame: Rendereable {
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
-	var backgroundImage: UIImage?
 	var bounds: CGRect {
 		get { return view.bounds }
 	}
@@ -43,6 +42,9 @@ class BreakoutGame: Rendereable {
 	
 	private(set) var score = Holder<Int>(with: 0)
 	private(set) var levelIndex = Holder<Int>(with: 1)
+	
+	var backgroundImage = Holder<UIImage?>(with: nil)
+	var testModeEnabled = Holder<Bool>(with: false)
 	
 	init(controller: BreakoutGameController, initialBallSpeed: CGFloat, initialBallCount: Int) {
 		self.controller = controller
@@ -74,7 +76,9 @@ class BreakoutGame: Rendereable {
 		levelIndex.value = 1
 		
 		balls.removeAll()
-		for _ in 0..<initialBallCount {
+		items.removeAll()
+		let ballCount = testModeEnabled.value ? 20 : initialBallCount
+		for _ in 0..<ballCount {
 			spawnBall()
 		}
 		
@@ -92,6 +96,12 @@ class BreakoutGame: Rendereable {
 			color: ballColor)
 		ball.score = score
 		balls.append(ball)
+	}
+	
+	func addToAllBalls(effect: BallEffect, forSeconds: Double) {
+		for ball in balls {
+			ball.add(effect: effect, forSeconds: forSeconds)
+		}
 	}
 	
 	private func advanceToNextLevel() {
@@ -138,7 +148,8 @@ class BreakoutGame: Rendereable {
 	
 	func remove(ball: Ball) {
 		removeFromArray(ball, from: &balls)
-		if isGameOver() {
+		if !testModeEnabled.value && isGameOver() {
+			// TODO: Don't show alert/game over message if the view is covered
 			showGameOver()
 		}
 	}
@@ -173,7 +184,7 @@ class BreakoutGame: Rendereable {
 	}
 	
 	func render(to context: CGContext) {
-		backgroundImage?.draw(in: bounds)
+		backgroundImage.value?.draw(in: bounds)
 		paddle.render(to: context)
 		for ball in balls {
 			ball.render(to: context)

@@ -13,7 +13,7 @@ import Foundation
  * equivalent to DateInterval, but does not
  * require the iOS 10 SDK.
  */
-class DateSpan {
+struct DateSpan {
 	var start: Date
 	var end: Date
 	var duration: TimeInterval {
@@ -39,5 +39,15 @@ class DateSpan {
 	func hasPassed() -> Bool {
 		let now = Date()
 		return now > end
+	}
+	
+	/**
+	 * Fetches the progress in percent.
+	 * The returned value will be between 0 and 1
+	 * (both inclusive).
+	 */
+	func getProgress() -> Double {
+		let now = Date()
+		return clamp(now.timeIntervalSince(start) / end.timeIntervalSince(start), min: 0, max: 1)
 	}
 }

@@ -10,12 +10,13 @@ import Foundation
 import CoreGraphics
 
 /**
- * The central object that can destroy bricks.
+ * The central game object that can destroy bricks.
  */
 class Ball: Circular, BallCollidable, Rendereable, Equatable {
 	private(set) var radius: CGFloat
 	private(set) var pos: CGPoint
 	private var collided: Bool = false
+	private var effects = [BallEffect : DateSpan]()
 	var score = Holder<Int>(with: 0)
 	let color: CGColor
 	var velocity: CGVector
@@ -29,37 +30,80 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 		velocity = CGVector(angleRad: angle, length: initialVelocity)
 	}
 	
+	func add(effect: BallEffect, forSeconds sec: Double) {
+		effects[effect] = DateSpan(start: Date(), duration: sec)
+		effect.apply(to: self)
+	}
+	
+	private func renderEffects(to context: CGContext) {
+		let strokeWidth: CGFloat = radius / 3
+		context.setLineWidth(strokeWidth)
+		var arcRadius: CGFloat = radius + strokeWidth
+		
+		for (effect, timeSpan) in effects {
+			let progress: CGFloat = CGFloat(timeSpan.getProgress())
+			let angle: CGFloat = progress * 2 * CGFloat.pi
+			
+			context.setStrokeColor(effect.color.cgColor)
+			context.addArc(center: pos, radius: arcRadius, startAngle: 0, endAngle: angle, clockwise: true)
+			context.strokePath()
+			
+			arcRadius += strokeWidth * 2
+		}
+	}
+	
+	func render(to context: CGContext) {
+		renderEffects(to: context)
+		context.setFillColor(color)
+		context.fillEllipse(in: CGRect(x: pos.x - radius, y: pos.y - radius, width: (radius * 2), height: (radius * 2)))
+	}
+	
+	private func updateEffects() {
+		for (effect, timeSpan) in effects {
+			if timeSpan.hasPassed() {
+				effect.remove(from: self)
+				effects.removeValue(forKey: effect)
+			}
+		}
+	}
+	
 	func update(game: BreakoutGame) {
+		updateEffects()
+		
 		collided = false
 		let newPos = predictPos()
+		let isInBounds = game.bounds.contains(self, withPadding: -radius)
+		let hitsGround = hitsBottomWall(newPos.y, game.bounds)
+		let staysInGame = (!hitsGround || game.testModeEnabled.value) && isInBounds
 		
-		if hitsSideWall(newPos.x, game.bounds) {
-			HorizontalWallCollision().perform(ball: self, collidable: nil)
-		} else if hitsTopWall(newPos.y, game.bounds) {
-			VerticalWallCollision().perform(ball: self, collidable: nil)
-		} else if hitsBottomWall(newPos.y, game.bounds) {
+		if staysInGame {
+			if hitsSideWall(newPos.x, game.bounds) {
+				InvertXCollision().perform(ball: self, collidable: nil)
+			} else if (hitsGround && game.testModeEnabled.value) || hitsTopWall(newPos.y, game.bounds) {
+				InvertYCollision().perform(ball: self, collidable: nil)
+			}
+			
+			if game.nextLevel != nil {
+				performCollisions(with: game.nextLevel!.bricks,
+				                  remover: {(i) -> () in game.nextLevel!.destroyBrick(at: i)})
+			}
+			performCollisions(with: [game.paddle], remover: nil)
+			performCollisions(with: game.currentLevel.bricks,
+			                  remover: {(i) -> () in game.currentLevel.destroyBrick(at: i)})
+			performCollisions(with: game.balls, remover: nil)
+			
+			move()
+		} else {
 			game.remove(ball: self)
-			return
 		}
-		
-		if game.nextLevel != nil {
-			performCollisions(with: game.nextLevel!.bricks,
-			                  remover: {(i) -> () in game.nextLevel!.destroyBrick(at: i)})
-		}
-		performCollisions(with: [game.paddle], remover: nil)
-		performCollisions(with: game.currentLevel.bricks,
-		                  remover: {(i) -> () in game.currentLevel.destroyBrick(at: i)})
-		performCollisions(with: game.balls, remover: nil)
-		
-		move()
 	}
 	
-	func grow() {
-		radius *= 2
+	func grow(byFactor factor: CGFloat) {
+		radius *= factor
 	}
 	
-	func shrink() {
-		radius /= 2
+	func shrink(byFactor factor: CGFloat) {
+		radius /= factor
 	}
 	
 	private func performCollisions(with collidables: [BallCollidable], remover: ((Int) -> ())!) {
@@ -96,11 +140,6 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 	
 	private func move() {
 		pos.addMutate(velocity)
-	}
-	
-	func render(to context: CGContext) {
-		context.setFillColor(color)
-		context.fillEllipse(in: CGRect(x: pos.x - radius, y: pos.y - radius, width: (radius * 2), height: (radius * 2)))
 	}
 	
 	func collisionWith(ball: Ball) -> BallCollision? {

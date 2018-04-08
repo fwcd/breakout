@@ -9,9 +9,33 @@
 import Foundation
 
 class Holder<T> {
-	var value: T
+	private var storedValue: T
+	private var listeners = [(T) -> ()]()
+	var value: T {
+		get { return storedValue }
+		set {
+			storedValue = newValue
+			fireListeners(with: newValue)
+		}
+	}
+	var isEmpty: Bool {
+		get {
+			// Supress the compiler warning about non-nullability
+			return (storedValue as T!) == nil
+		}
+	}
 	
 	init(with value: T) {
-		self.value = value
+		storedValue = value
+	}
+	
+	func add(listener: @escaping (T) -> ()) {
+		listeners.append(listener)
+	}
+	
+	private func fireListeners(with value: T) {
+		for listener in listeners {
+			listener(value)
+		}
 	}
 }

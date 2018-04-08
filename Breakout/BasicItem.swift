@@ -24,6 +24,11 @@ class BasicItem: Item {
 		self.radius = radius
 		textureSize = CGSize(width: radius, height: radius)
 		velocity = CGVector(dx: 0, dy: speed)
+		texture = loadTexture()
+	}
+	
+	func loadTexture() -> UIImage? {
+		return nil
 	}
 	
 	func setGame(_ game: BreakoutGame) {
