@@ -41,7 +41,12 @@ class SettingsViewController: UITableViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.destination is BreakoutGameController {
-			(segue.destination as! BreakoutGameController).game.backgroundImage = imgView.image
+			let game: BreakoutGame = (segue.destination as! BreakoutGameController).game
+			
+			game.backgroundImage = imgView.image
+			if game.isGameOver() {
+				game.restart()
+			}
 		}
 	}
 	

@@ -8,7 +8,7 @@
 
 import Foundation
 
-func remove<E: Equatable>(_ element: E, from array: inout [E]) {
+func removeFromArray<E: Equatable>(_ element: E, from array: inout [E]) {
 	var i: Int = 0
 	for other in array {
 		if other == element {

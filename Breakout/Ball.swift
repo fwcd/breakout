@@ -35,15 +35,10 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 		
 		if hitsSideWall(newPos.x, game.bounds) {
 			HorizontalWallCollision().perform(ball: self, collidable: nil)
-			collided = true
 		} else if hitsTopWall(newPos.y, game.bounds) {
 			VerticalWallCollision().perform(ball: self, collidable: nil)
-			collided = true
 		} else if hitsBottomWall(newPos.y, game.bounds) {
-			remove(self, from: &game.balls)
-			if game.balls.count == 0 {
-				game.gameOver()
-			}
+			game.remove(ball: self)
 			return
 		}
 		

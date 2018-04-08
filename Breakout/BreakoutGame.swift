@@ -136,7 +136,18 @@ class BreakoutGame: Rendereable {
 		}
 	}
 	
-	func gameOver() {
+	func remove(ball: Ball) {
+		removeFromArray(ball, from: &balls)
+		if isGameOver() {
+			showGameOver()
+		}
+	}
+	
+	func isGameOver() -> Bool {
+		return balls.count == 0
+	}
+	
+	func showGameOver() {
 		let alert = UIAlertController(title: "Game Over", message: hud.getLine(), preferredStyle: .alert)
 		let action = UIAlertAction(title: "Restart", style: .default, handler: {(a) -> () in self.restart()})
 		alert.addAction(action)
