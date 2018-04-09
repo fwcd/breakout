@@ -43,8 +43,8 @@ class HardBrick: BasicBrick {
 		if hitsLeft < resistance {
 			let label = "\(hitsLeft)" as NSString
 			let attributes = [
-					NSFontAttributeName : UIFont.systemFont(ofSize: bounds.height * 0.75),
-					NSForegroundColorAttributeName : UIColor.white
+					NSAttributedStringKey.font : UIFont.systemFont(ofSize: bounds.height * 0.75),
+					NSAttributedStringKey.foregroundColor : UIColor.white
 			]
 			label.draw(at: pos, withAttributes: attributes)
 		}

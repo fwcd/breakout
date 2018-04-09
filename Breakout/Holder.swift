@@ -18,12 +18,6 @@ class Holder<T> {
 			fireListeners(with: newValue)
 		}
 	}
-	var isEmpty: Bool {
-		get {
-			// Supress the compiler warning about non-nullability
-			return (storedValue as T!) == nil
-		}
-	}
 	
 	init(with value: T) {
 		storedValue = value

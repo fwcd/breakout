@@ -36,9 +36,7 @@ class SettingsViewController: UITableViewController {
 	}
 	
 	private func syncViewWithModel() {
-		if !model.backgroundImage.isEmpty {
-			imgView.image = model.backgroundImage.value
-		}
+		imgView.image = model.backgroundImage.value
 		testModeSwitch.setOn(model.testModeEnabled.value, animated: false)
 	}
 	

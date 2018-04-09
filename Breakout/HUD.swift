@@ -34,8 +34,8 @@ class HUD: Rendereable {
 	func render(to context: CGContext) {
 		let nsStr = getLine() as NSString
 		let attributes = [
-			NSFontAttributeName : UIFont.systemFont(ofSize: fontSize),
-			NSForegroundColorAttributeName : color
+			NSAttributedStringKey.font : UIFont.systemFont(ofSize: fontSize),
+			NSAttributedStringKey.foregroundColor : color
 		]
 		nsStr.draw(at: pos, withAttributes: attributes)
 	}

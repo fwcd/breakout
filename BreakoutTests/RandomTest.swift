@@ -21,14 +21,14 @@ class RandomTest: XCTestCase {
     }
     
     func test() {
-		XCTAssertEqualWithAccuracy(
+		XCTAssertEqual(
 			getProbability(
 				of: {() -> Bool in return randomBool()},
 				expected: true,
 				tests: 100),
 			0.5,
 			accuracy: 0.1)
-		XCTAssertEqualWithAccuracy(
+		XCTAssertEqual(
 			getProbability(
 				of: {() -> Int in return randomInt(from: -5, to: 4)},
 				expected: -2,

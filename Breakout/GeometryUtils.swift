@@ -110,6 +110,7 @@ extension CGRect {
 
 extension CGVector {
 	init(angleRad: CGFloat, length: CGFloat) {
+		self.init()
 		dx = cos(angleRad) * length
 		dy = sin(angleRad) * length
 	}
