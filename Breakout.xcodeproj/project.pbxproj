@@ -13,6 +13,7 @@
 		3527690F207A60E900938B72 /* DateSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527690E207A60E900938B72 /* DateSpan.swift */; };
 		35276911207A8FCA00938B72 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276910207A8FCA00938B72 /* SettingsModel.swift */; };
 		35276913207A9B1400938B72 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276912207A9B1400938B72 /* SettingsNavigationController.swift */; };
+		35276915207AAAD600938B72 /* Ticking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276914207AAAD600938B72 /* Ticking.swift */; };
 		3528093B207682AD00130579 /* BackgroundImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */; };
 		353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353708282077D12F00B89F79 /* GeometryUtils.swift */; };
 		3537082B2077E5CA00B89F79 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3537082A2077E5CA00B89F79 /* HUD.swift */; };
@@ -80,6 +81,7 @@
 		3527690E207A60E900938B72 /* DateSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSpan.swift; sourceTree = "<group>"; };
 		35276910207A8FCA00938B72 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		35276912207A9B1400938B72 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		35276914207AAAD600938B72 /* Ticking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticking.swift; sourceTree = "<group>"; };
 		3528093A207682AD00130579 /* BackgroundImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImagePickerDelegate.swift; sourceTree = "<group>"; };
 		353708282077D12F00B89F79 /* GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryUtils.swift; sourceTree = "<group>"; };
 		3537082A2077E5CA00B89F79 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				35ED398C20795358005489EF /* BreakoutGameView.swift */,
 				3537082A2077E5CA00B89F79 /* HUD.swift */,
 				3595657F2073DB000091FFF9 /* Paddle.swift */,
+				35276914207AAAD600938B72 /* Ticking.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				359565882073E5B70091FFF9 /* Ball.swift in Sources */,
 				3595658C2073FAEE0091FFF9 /* BallCollidable.swift in Sources */,
 				359565842073DC3E0091FFF9 /* Brick.swift in Sources */,
+				35276915207AAAD600938B72 /* Ticking.swift in Sources */,
 				359565AE207545360091FFF9 /* SettingsViewController.swift in Sources */,
 				3527690B207A4D9400938B72 /* GrowBallEffect.swift in Sources */,
 				353708292077D12F00B89F79 /* GeometryUtils.swift in Sources */,

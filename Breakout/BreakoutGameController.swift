@@ -10,17 +10,21 @@ import UIKit
 
 /**
  * The controller that handles events and
- * user input to control the game.
+ * user input to control the game. Furthermore
+ * does it contain the game loop.
  */
 class BreakoutGameController: UIViewController {
 	private let settingsModel = SettingsModel()
-	private let preferredFPS = 30 // TODO: Use 60 FPS, but adjust game speed accordingly
-	private var displayLink: CADisplayLink!
 	private var loaded: Bool = false
 	private(set) var game: BreakoutGame!
 	override var prefersStatusBarHidden: Bool {
 		get { return true }
 	}
+	
+	private var displayLink: CADisplayLink!
+	private var tps = 60
+	private var tickDelay: TimeInterval!
+	private var lastTick = Date()
 	
 	override func viewWillAppear(_ animated: Bool) {
 		if (!loaded) {
@@ -30,10 +34,8 @@ class BreakoutGameController: UIViewController {
 			
 			// Initialize gameloop
 			
+			tickDelay = 1.0 / Double(tps)
 			displayLink = CADisplayLink(target: self, selector: #selector(gameLoop))
-			if #available(iOS 10.0, *) {
-				displayLink.preferredFramesPerSecond = preferredFPS
-			}
 			displayLink.add(to: .main, forMode: .commonModes)
 			loaded = true
 		}
@@ -47,10 +49,10 @@ class BreakoutGameController: UIViewController {
 	@objc
 	private func gameLoop() {
 		if !view.isHidden {
-			game.update()
-			
-			for ball in game.balls {
-				ball.update(game: game)
+			let now = Date()
+			if now.timeIntervalSince(lastTick) > tickDelay {
+				game.tick()
+				lastTick = now
 			}
 			
 			view.setNeedsDisplay()

@@ -13,7 +13,7 @@ import UIKit
  * The main game class that contains the paddle,
  * balls and levels.
  */
-class BreakoutGame: Rendereable {
+class BreakoutGame: Rendereable, Ticking {
 	private let controller: BreakoutGameController
 	private let view: BreakoutGameView
 	
@@ -117,7 +117,7 @@ class BreakoutGame: Rendereable {
 		}
 	}
 	
-	func update() {
+	func tick() {
 		transition?.advance()
 		if !(transition?.inProgress() ?? true) {
 			currentLevel = nextLevel!
@@ -143,6 +143,10 @@ class BreakoutGame: Rendereable {
 		
 		if currentLevel.isCompleted() {
 			advanceToNextLevel()
+		}
+		
+		for ball in balls {
+			ball.update(game: self)
 		}
 	}
 	
