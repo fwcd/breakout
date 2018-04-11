@@ -9,12 +9,10 @@
 import Foundation
 
 func removeFromArray<E: Equatable>(_ element: E, from array: inout [E]) {
-	var i: Int = 0
-	for other in array {
+	for (i, other) in array.enumerated().reversed() {
 		if other == element {
 			array.remove(at: i)
 			return
 		}
-		i += 1
 	}
 }

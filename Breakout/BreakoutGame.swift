@@ -16,13 +16,13 @@ import UIKit
 class BreakoutGame: Rendereable, Ticking {
 	private let controller: BreakoutGameController
 	private let view: BreakoutGameView
+	var bounds: CGRect {
+		get { return view.bounds }
+	}
 	
 	private let paddleColor: CGColor = UIColor.orange.cgColor
 	private let brickColor: CGColor = UIColor.yellow.cgColor
 	private let ballColor: CGColor = UIColor.white.cgColor
-	var bounds: CGRect {
-		get { return view.bounds }
-	}
 	
 	private let xBricks: Int = 8
 	private let initialBallSpeed: CGFloat
@@ -34,11 +34,29 @@ class BreakoutGame: Rendereable, Ticking {
 	private(set) var currentLevel: Level!
 	private(set) var nextLevel: Level?
 	private var transition: Transition?
+	private var progressives = [Progressive]()
 	
 	private(set) var hud: HUD!
 	private(set) var paddle: Paddle!
 	var balls = [Ball]()
 	var items = [Item]()
+	
+	/**
+	 * Aggregates all current bricks.
+	 * Runs in O(n) time each call. Mutating
+	 * the resulting array has no effect
+	 * on the actual bricks.
+	 */
+	var bricks: [Brick] {
+		get {
+			var buffer = [Brick]()
+			buffer.append(contentsOf: currentLevel.bricks)
+			if nextLevel != nil {
+				buffer.append(contentsOf: nextLevel!.bricks)
+			}
+			return buffer
+		}
+	}
 	
 	private(set) var score = Holder<Int>(with: 0)
 	private(set) var levelIndex = Holder<Int>(with: 1)
@@ -98,6 +116,10 @@ class BreakoutGame: Rendereable, Ticking {
 		balls.append(ball)
 	}
 	
+	func spawnExplosion(at pos: GridPosition, withRadius radius: CGFloat) {
+		progressives.append(BrickExplosion(at: pos, withRadius: radius, inGame: self))
+	}
+	
 	func addToAllBalls(effect: BallEffect, forSeconds: Double) {
 		for ball in balls {
 			ball.add(effect: effect, forSeconds: forSeconds)
@@ -105,6 +127,10 @@ class BreakoutGame: Rendereable, Ticking {
 	}
 	
 	private func advanceToNextLevel() {
+		// A transition is intentionally not added to the
+		// list of progressives as there only should be one
+		// transition at a time.
+		
 		if transition == nil && nextLevel != nil {
 			prepare(level: nextLevel!, offset: CGVector(dx: 0, dy: -bounds.height))
 			transition = Transition(
@@ -114,19 +140,27 @@ class BreakoutGame: Rendereable, Ticking {
 				moveables: [currentLevel, nextLevel!],
 				style: .accelerateAndDecelerate)
 			levelIndex.value += 1
+		} else {
+			print("Warning: Can't advance to next level without a level or while a transition is running!")
 		}
 	}
 	
 	func tick() {
 		transition?.advance()
-		if !(transition?.inProgress() ?? true) {
+		if transition?.isFinished() ?? false {
 			currentLevel = nextLevel!
 			nextLevel = currentLevel.nextLevel
 			transition = nil
 		}
 		
-		var i = 0
-		for item in items {
+		for (i, progressive) in progressives.enumerated().reversed() {
+			progressive.advance()
+			if progressive.isFinished() {
+				progressives.remove(at: i)
+			}
+		}
+		
+		for (i, item) in items.enumerated().reversed() {
 			let pickUp: Bool = item.collidesWith(paddle: paddle)
 			
 			if pickUp {
@@ -138,7 +172,6 @@ class BreakoutGame: Rendereable, Ticking {
 			if pickUp || item.pos.y > bounds.height {
 				items.remove(at: i)
 			}
-			i += 1
 		}
 		
 		if currentLevel.isCompleted() {
@@ -182,7 +215,7 @@ class BreakoutGame: Rendereable, Ticking {
 				let w: CGFloat = brickWidth - (brickPadding * 2)
 				let h: CGFloat = brickHeight - (brickPadding * 2)
 				
-				level.addBrick(in: CGRect(x: x, y: y, width: w, height: h), with: self)
+				level.addBrick(in: CGRect(x: x, y: y, width: w, height: h), with: self, at: GridPosition(x: gridX, y: gridY))
 			}
 		}
 	}

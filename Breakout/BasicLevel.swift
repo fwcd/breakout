@@ -13,7 +13,11 @@ import CoreGraphics
  * A template implementation of Level.
  */
 class BasicLevel: Level {
-	private(set) var bricks: [Brick] = [Brick]()
+	/**
+	 * Bricks should never be mutated without
+	 * appropriately modifiying the brickCounter!!
+	 */
+	private(set) var bricks = [Brick]()
 	var nextLevel: Level? {
 		get { return nil }
 	}
@@ -29,8 +33,18 @@ class BasicLevel: Level {
 		}
 	}
 	
-	func addBrick(in bounds: CGRect, with game: BreakoutGame) {
-		let brick = sampleBrick()
+	func filterBricks(_ isIncluded: (Brick) -> Bool) {
+		for (i, brick) in bricks.enumerated().reversed() {
+			if !isIncluded(brick) {
+				brickCounter -= 1
+				bricks.remove(at: i)
+			}
+		}
+	}
+	
+	func addBrick(in bounds: CGRect, with game: BreakoutGame, at gridPos: GridPosition) {
+		var brick = sampleBrick()
+		brick.gridPosition = gridPos
 		brick.setGame(game)
 		brick.placeIn(bounds: bounds)
 		bricks.append(brick)

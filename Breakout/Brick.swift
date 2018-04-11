@@ -15,6 +15,8 @@ import CoreGraphics
  * that responds to collisions with balls.
  */
 protocol Brick: Rectangular, BallCollidable, Rendereable {
+	var gridPosition: GridPosition! { get set }
+	
 	func setGame(_ game: BreakoutGame)
 	
 	func placeIn(bounds: CGRect)

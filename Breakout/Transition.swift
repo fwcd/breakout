@@ -12,7 +12,7 @@ import CoreGraphics
 enum TransitionStyle {
 	case linear
 	case accelerate
-	case decelerate // TODO: Currently not working as linear deceleration leads to negative speeds
+	case decelerate
 	case accelerateAndDecelerate
 }
 
@@ -21,9 +21,10 @@ enum TransitionStyle {
  * two position states of a variable number
  * of moveable objects.
  */
-class Transition {
+class Transition: Progressive {
 	private(set) var current: CGPoint
 	private(set) var speed: CGFloat
+	private let acceleration: CGFloat = 1
 	private var firstHalf: Bool = true
 	let start: CGPoint
 	let goal: CGPoint
@@ -41,9 +42,11 @@ class Transition {
 	
 	func advance() {
 		if style == .accelerate || (firstHalf && style == .accelerateAndDecelerate) {
-			speed += 1
+			speed += acceleration
 		} else if style == .decelerate || (!firstHalf && style == .accelerateAndDecelerate) {
-			speed -= 1
+			if speed > acceleration {
+				speed -= acceleration
+			}
 		}
 		
 		let d = getDeltaVec()
@@ -72,7 +75,7 @@ class Transition {
 		return current.distTo(point: goal) < current.distTo(point: start)
 	}
 	
-	func inProgress() -> Bool {
-		return current != goal
+	func isFinished() -> Bool {
+		return current == goal
 	}
 }

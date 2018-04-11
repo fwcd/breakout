@@ -19,7 +19,7 @@ class Level3: BasicLevel {
 	override func sampleBrick() -> Brick {
 		switch randomInt(from: 0, to: 8) {
 		case 0:
-			return HardBrick(resistance: 6)
+			return ExplodingBrick(radius: 3)
 		case 1:
 			return HardBrick(resistance: 4)
 		case 2:

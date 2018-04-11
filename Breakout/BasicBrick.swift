@@ -18,6 +18,7 @@ class BasicBrick: Brick {
 	var velocity: CGVector = CGVector(dx: 0, dy: 0)
 	var bounds: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
 	var game: BreakoutGame!
+	var gridPosition: GridPosition!
 	
 	func setGame(_ game: BreakoutGame) {
 		self.game = game

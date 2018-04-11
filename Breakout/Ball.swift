@@ -108,8 +108,7 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 	
 	private func performCollisions(with collidables: [BallCollidable], remover: ((Int) -> ())!) {
 		if !collided {
-			var i: Int = 0
-			for collidable in collidables {
+			for (i, collidable) in collidables.enumerated().reversed() {
 				let collision = collidable.collisionWith(ball: self)
 				if collision != nil {
 					collision!.perform(ball: self, collidable: collidable)
@@ -121,7 +120,6 @@ class Ball: Circular, BallCollidable, Rendereable, Equatable {
 					collided = true
 					break
 				}
-				i += 1
 			}
 		}
 	}
